@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+
+#search for song
+import requests
+
+def get_artists_genres(chunk):
+    ar = requests.get(base_url + 'artists?ids={}'.format(chunk), headers=headers)
+    artists_data = ar.json().get('artists')
+    for artist in artists_data:
+        genre_data = artist.get('genres')
+        artist_name = artist.get('name')
+        for genre in genre_data:
+            if genre and genre not in artist_genres:
+                artist_genres[genre] = set([artist_name])
+            else:
+                artist_genres[genre].add(artist_name)
+
+
+
+client_id = '74d9ae9d573f400d9d5bd276ed9718d6'
+client_secret = 'e8c97c838925412d88d381612673efc4'
+auth_url = 'https://accounts.spotify.com/api/token'
+
+data = {
+    'grant_type': 'client_credentials',
+    'client_id': client_id,
+    'client_secret': client_secret,
+}
+
+auth_response = requests.post(auth_url, data=data)
+access_token = auth_response.json().get('access_token')
+
+
+base_url = 'https://api.spotify.com/v1/'
+
+headers = {
+    'Authorization': 'Bearer {}'.format(access_token)
+}
+
+featured_playlists_endpoint = 'browse/featured-playlists/?limit=50'
+featured_playlists_url = ''.join([base_url,featured_playlists_endpoint])
+
+response = requests.get(featured_playlists_url,headers=headers)
+
+playlists = response.json().get('playlists').get('items')
+
+
+playlist_ids = set()
+for pl in playlists:
+    playlist_id = pl.get('id')
+    playlist_ids.add(playlist_id)
+
+artist_ids = set()
+for p_id in playlist_ids:
+    pr = requests.get(base_url + 'playlists/{}/tracks'.format(p_id), headers=headers)
+    pr_data = pr.json()
+    if pr_data:
+        playlist_data = pr_data.get('items')
+        for tr in playlist_data:
+            track = tr.get('track')
+            if track:
+                artists = track.get('artists')
+                for artist in artists: 
+                    artist_id = artist.get('id')
+                    artist_ids.add(artist_id)
+
+artist_genres = {}
+artist_ids_list = list(artist_ids)
+while artist_ids_list:
+    if len(artist_ids_list) > 50:
+        current_request = artist_ids_list[:50]
+        chunk = ','.join(artist_ids_list[:50])
+        get_artists_genres(chunk)
+        artist_ids_list = artist_ids_list[50:]
+    else:
+        current_request = artist_ids_list
+        artist_ids_list = []
+
+chunk = ','.join(artist_ids_list[:50])
+
