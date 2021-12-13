@@ -376,3 +376,259 @@ DevTools listening on ws://localhost:55113/devtools/browser/505746aa-cbda-47e8-a
 1637867389023	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 1637867396607	Marionette	INFO	Stopped listening on port 36451
 JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1639336601508	geckodriver	INFO	Listening on 127.0.0.1:39833
+1639336602015	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "56025" "-no-remote" "-profile" "/tmp/rust_mozprofilep2bEHs"
+*** You are running in headless mode.
+1639336603608	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=2.14813) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilep2bEHs/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56025/devtools/browser/29dbbdac-24ee-455a-b469-636f2d9a3da5
+1639336605138	Marionette	INFO	Listening on port 44055
+1639336605238	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639336658227	geckodriver	INFO	Listening on 127.0.0.1:33811
+1639336658728	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "59785" "-no-remote" "-profile" "/tmp/rust_mozprofileHqwqo8"
+*** You are running in headless mode.
+1639336659172	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.874011) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileHqwqo8/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59785/devtools/browser/3fb1ae7c-0d22-4de0-9c61-e062ce15560e
+1639336660168	Marionette	INFO	Listening on port 41273
+1639336660246	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639336723773	geckodriver	INFO	Listening on 127.0.0.1:55515
+1639336724275	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "39373" "-no-remote" "-profile" "/tmp/rust_mozprofileqBl379"
+*** You are running in headless mode.
+1639336724662	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.905594) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileqBl379/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:39373/devtools/browser/aa64a646-ef64-43e4-b6a9-7de21342f731
+1639336725821	Marionette	INFO	Listening on port 41679
+1639336725897	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639336731524	Marionette	INFO	Stopped listening on port 41679
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1639337630758	geckodriver	INFO	Listening on 127.0.0.1:48757
+1639337631265	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "59259" "-no-remote" "-profile" "/tmp/rust_mozprofileds6sLS"
+*** You are running in headless mode.
+1639337631763	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.991973) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileds6sLS/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59259/devtools/browser/f26036a7-029f-4ac7-b389-71253c8ac0c6
+1639337632814	Marionette	INFO	Listening on port 36949
+1639337632887	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639337639292	Marionette	INFO	Stopped listening on port 36949
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5B0008,name=PHttpChannel::Msg_DeletingChannel) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639337705114	geckodriver	INFO	Listening on 127.0.0.1:39179
+1639337705125	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "58307" "-no-remote" "-profile" "/tmp/rust_mozprofileFtNAo9"
+*** You are running in headless mode.
+1639337705529	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.909776) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileFtNAo9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58307/devtools/browser/6c7e0dea-b531-4137-9fa9-9ea3fa0c3f8f
+1639337706682	Marionette	INFO	Listening on port 38969
+1639337706757	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639337710607	Marionette	INFO	Stopped listening on port 38969
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1639337764051	geckodriver	INFO	Listening on 127.0.0.1:42465
+1639337764563	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "46695" "-no-remote" "-profile" "/tmp/rust_mozprofileC9owse"
+*** You are running in headless mode.
+1639337764978	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.852042) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileC9owse/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:46695/devtools/browser/66e5950b-3420-4ef1-82a2-c6d68b9d67de
+1639337765971	Marionette	INFO	Listening on port 40489
+1639337766089	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639337769447	Marionette	INFO	Stopped listening on port 40489
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639337974859	geckodriver	INFO	Listening on 127.0.0.1:52633
+1639337974876	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "55261" "-no-remote" "-profile" "/tmp/rust_mozprofilezCCkz3"
+*** You are running in headless mode.
+1639337975417	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=1.03772) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilezCCkz3/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55261/devtools/browser/c9d4840a-e9e3-4a78-8901-1c12c4212e14
+1639337976583	Marionette	INFO	Listening on port 39963
+1639337976700	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639337985508	Marionette	INFO	Stopped listening on port 39963
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5B0007,name=PHttpChannel::Msg_RemoveCorsPreflightCacheEntry) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5B0004,name=PHttpChannel::Msg_Cancel) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5B0008,name=PHttpChannel::Msg_DeletingChannel) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639337998022	geckodriver	INFO	Listening on 127.0.0.1:44603
+1639337998544	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "51815" "-no-remote" "-profile" "/tmp/rust_mozprofilee9foll"
+*** You are running in headless mode.
+1639337999226	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=1.12107) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilee9foll/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51815/devtools/browser/0a165af9-ea40-4e4c-9751-24141c2f6a20
+1639338000222	Marionette	INFO	Listening on port 34741
+1639338000264	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639338003959	Marionette	INFO	Stopped listening on port 34741
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1639338133320	geckodriver	INFO	Listening on 127.0.0.1:56285
+1639338133834	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "33739" "-no-remote" "-profile" "/tmp/rust_mozprofileQT4u3b"
+*** You are running in headless mode.
+1639338134205	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.80985) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileQT4u3b/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33739/devtools/browser/692ca325-be15-46a4-a329-1f34a2fa4e7e
+1639338135221	Marionette	INFO	Listening on port 41379
+1639338135254	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639338138618	Marionette	INFO	Stopped listening on port 41379
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639338163827	geckodriver	INFO	Listening on 127.0.0.1:38505
+1639338164343	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "57595" "-no-remote" "-profile" "/tmp/rust_mozprofilennonAN"
+*** You are running in headless mode.
+1639338164725	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.820468) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilennonAN/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57595/devtools/browser/0551a39e-d5a6-4f1f-8eae-63cfd8ee3140
+1639338165761	Marionette	INFO	Listening on port 41007
+1639338165891	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639338169045	Marionette	INFO	Stopped listening on port 41007
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1639338494270	geckodriver	INFO	Listening on 127.0.0.1:34267
+1639338494784	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "35907" "-no-remote" "-profile" "/tmp/rust_mozprofileZwY3uG"
+*** You are running in headless mode.
+1639338495215	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.946337) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZwY3uG/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:35907/devtools/browser/ea913b65-08ff-44db-907f-2a9431bae94f
+1639338496414	Marionette	INFO	Listening on port 37885
+1639338496508	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639338500364	Marionette	INFO	Stopped listening on port 37885
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1639338529406	geckodriver	INFO	Listening on 127.0.0.1:46371
+1639338529426	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "57233" "-no-remote" "-profile" "/tmp/rust_mozprofileOh43UR"
+*** You are running in headless mode.
+1639338530024	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=1.06961) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileOh43UR/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57233/devtools/browser/dccfba49-7ccc-4a80-8199-6fc4f1f8d2cb
+1639338531058	Marionette	INFO	Listening on port 33483
+1639338531146	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639338536108	Marionette	INFO	Stopped listening on port 33483
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5B0007,name=PHttpChannel::Msg_RemoveCorsPreflightCacheEntry) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5B0004,name=PHttpChannel::Msg_Cancel) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5B0008,name=PHttpChannel::Msg_DeletingChannel) Channel closing: too late to send/recv, messages will be lost
+
+1639338564094	geckodriver	INFO	Listening on 127.0.0.1:45927
+1639338564600	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "60943" "-no-remote" "-profile" "/tmp/rust_mozprofilenKjZjA"
+*** You are running in headless mode.
+1639338564960	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.821388) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilenKjZjA/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60943/devtools/browser/645ee64b-abdc-4277-98f7-7fb33da7bad2
+1639338566004	Marionette	INFO	Listening on port 43123
+1639338566117	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639338568947	Marionette	INFO	Stopped listening on port 43123
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1639399383997	geckodriver	INFO	Listening on 127.0.0.1:40063
+1639399384512	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "33519" "-no-remote" "-profile" "/tmp/rust_mozprofileVI3tIo"
+*** You are running in headless mode.
+1639399385720	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=1.92246) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileVI3tIo/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33519/devtools/browser/9f9eb0ff-aba0-472a-862a-b70e1d239492
+1639399387386	Marionette	INFO	Listening on port 42053
+1639399387449	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
+1639399404432	Marionette	INFO	Stopped listening on port 42053
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+

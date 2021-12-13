@@ -5,11 +5,13 @@ from Login_ui import Ui_login as Login
 from Filters_ui import Ui_Filters as Filters
 from Result_ui import Ui_Result as Result
 from Details_song_ui import Ui_Details_song as Details_song
+from Lyrics_ui import Ui_Lyrics as Lyrics
 
 class Controller:
     filters_exist = 0
     result_exist = 0
     login_exist = 0
+    details_exist = 0
     def __init__(self):
         pass
 
@@ -44,14 +46,28 @@ class Controller:
             self.window.hide()
         else:
             self.details.close()
+            self.details_exist = 0
         self.result.show()
 
     def show_details(self, data):
-        self.details = Details_song()
-        self.details.setupUi(self.details, data)
-        self.details.switch_window.connect(self.show_result)
-        self.result.hide()
+        if(self.details_exist == 0):
+            self.details_exist = 1
+            self.details = Details_song()
+            self.details.setupUi(self.details, data)
+            self.details.switch_window.connect(self.show_result)
+            self.details.switch_window2.connect(self.show_lyrics)
+            self.result.hide()
+        else: 
+            self.lyrics.close()
         self.details.show()
+
+    def show_lyrics(self, url):
+        self.lyrics = Lyrics()
+        self.lyrics.setupUi(self.lyrics, url)
+        self.lyrics.switch_window.connect(self.show_details)
+        self.details.hide()
+        self.lyrics.show()
+
 
 if __name__ == "__main__":
     import sys

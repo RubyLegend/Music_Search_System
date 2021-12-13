@@ -271,6 +271,45 @@ def add_to_database(data):
         # your changes.
         connection.commit()
 
+def web_browser_fetch(url, display):
+            print("Getting lyrics...")
+
+            FirefoxOptions = webdriver.FirefoxOptions()
+            FirefoxOptions.add_argument('-headless')
+            browser = webdriver.Firefox(options=FirefoxOptions)
+            browser.install_addon(os.path.realpath('./Front-End/uBlock.xpi'), temporary=True)
+            browser.get(url)
+            content = browser.page_source
+            browser.close()
+        
+            # Parsing the html 
+            parse = BeautifulSoup(content, 'html.parser')
+            # Removing all href`s (unnecesary links)
+            for a in parse.findAll('a'):
+                del a['href']
+            # Provide html elements' attributes to extract the data 
+            lyrics_html = parse.find_all('div', attrs={'data-lyrics-container': 'true'})
+            #if Genius loaded old site
+            lyrics_html = lyrics_html + parse.find_all('section', attrs={'ng-hide': 'lyrics_ctrl.should_show_lyrics_edit_form() || lyrics_ctrl.should_show_lyrics_edit_proposal_form()'})
+    
+            #Converting html lyrics to text
+            lyrics = ''
+            for x in lyrics_html:
+                lyrics = lyrics + html2text.html2text(str(x))
+        
+            if(display == 1):
+                print("-----------------------------")
+                print(lyrics)
+
+            # Writing extracted data in a txt file
+            with open('index.txt', 'w') as text:
+              text.write(lyrics)
+            if(display == 1):
+                print("-----------------------------")
+                
+            print("Done. You can look for a lyrics in an 'index.txt' file.")
+    
+
 def get_lyrics(artist, song, open_video, display, is_text, auto_add, debug):
     base_url = 'https://api.genius.com/search/'
     
@@ -316,42 +355,7 @@ def get_lyrics(artist, song, open_video, display, is_text, auto_add, debug):
                 else:
                     break
             
-            print("Getting lyrics...")
-
-            FirefoxOptions = webdriver.FirefoxOptions()
-            FirefoxOptions.add_argument('-headless')
-            browser = webdriver.Firefox(options=FirefoxOptions)
-            browser.install_addon(os.path.realpath('uBlock.xpi'), temporary=True)
-            browser.get(json_data['response']['hits'][choice-1]['result']['url'])
-            content = browser.page_source
-            browser.close()
-        
-            # Parsing the html 
-            parse = BeautifulSoup(content, 'html.parser')
-            # Removing all href`s (unnecesary links)
-            for a in parse.findAll('a'):
-                del a['href']
-            # Provide html elements' attributes to extract the data 
-            lyrics_html = parse.find_all('div', attrs={'data-lyrics-container': 'true'})
-            #if Genius loaded old site
-            lyrics_html = lyrics_html + parse.find_all('section', attrs={'ng-hide': 'lyrics_ctrl.should_show_lyrics_edit_form() || lyrics_ctrl.should_show_lyrics_edit_proposal_form()'})
-    
-            #Converting html lyrics to text
-            lyrics = ''
-            for x in lyrics_html:
-                lyrics = lyrics + html2text.html2text(str(x))
-        
-            if(display == 1):
-                print("-----------------------------")
-                print(lyrics)
-
-            # Writing extracted data in a txt file
-            with open('index.txt', 'w') as text:
-              text.write(lyrics)
-            if(display == 1):
-                print("-----------------------------")
-                
-            print("Done. You can look for a lyrics in an 'index.txt' file.")
+            web_browser_fetch(json_data['response']['hits'][choice-1]['result']['url'], display)
 
             if(open_video):
                 base_url = 'https://api.genius.com' + str(json_data['response']['hits'][choice-1]['result']['api_path'])

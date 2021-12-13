@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QRect
 from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
 from SQL_functions import *
+from search_genius import *
 
 class Ui_Filters(QtWidgets.QWidget):
     
@@ -353,7 +354,13 @@ class Ui_Filters(QtWidgets.QWidget):
     
             connection.commit()
         if(type(data) == tuple):    ### QuickFix: for no results
-            buttonReply = QMessageBox.about(self, "Error", "No results found.")
+            #I'm trying to connect to my script to add song, if it isn't in my database
+            #Adding request to search in external database and add to my own
+            buttonReply = QMessageBox.question(self, "Error" , "This song isn't found in local database.\nDo you want to search in external database?")
+            if buttonReply == QMessageBox.Yes:
+                get_lyrics(self.Artist.text(), self.Song.text(), 0, 0, 0, 1, 1)
+                buttonReply2 = QMessageBox.about(self, "Successfull", "All search results from Genius added to database")
+
         else: 
             self.switch_window.emit(data)
 

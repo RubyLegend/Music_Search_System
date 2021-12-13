@@ -4,13 +4,14 @@ from SQL_functions import *
 import pymysql
 from selenium import webdriver
 import os
-
+import time
 
 class Ui_Details_song(QtWidgets.QWidget):
 
     res_data = ''
     AlbumName = ''
     switch_window = QtCore.pyqtSignal(list)
+    switch_window2 = QtCore.pyqtSignal(str)
 
     def setupUi(self, Details_song, data):
         Details_song.setObjectName("Details_song")
@@ -47,6 +48,9 @@ class Ui_Details_song(QtWidgets.QWidget):
         self.Lyrics = QtWidgets.QPushButton(Details_song)
         self.Lyrics.setObjectName("Lyrics")
         self.verticalLayout.addWidget(self.Lyrics)
+        #self.Video = QtWidgets.QPushButton(Details_song)
+        #self.Video.setObjectName("Video")
+        #self.verticalLayout.addWidget(self.Video)
         self.Return_to_results = QtWidgets.QPushButton(Details_song)
         self.Return_to_results.setObjectName("Return_to_results")
         self.verticalLayout.addWidget(self.Return_to_results)
@@ -64,10 +68,7 @@ class Ui_Details_song(QtWidgets.QWidget):
         self.switch_window.emit(list())
 
     def open_lyrics(self):
-        FirefoxOptions = webdriver.FirefoxOptions()
-        browser = webdriver.Firefox(options=FirefoxOptions)
-        browser.install_addon(os.path.realpath('uBlock.xpi'), temporary=True)
-        browser.get(self.res_data['ID_Lyrics'])
+        self.switch_window2.emit(self.res_data['ID_Lyrics'])
 
     def get_album(self):
         connection = pymysql.connect(host='localhost',
@@ -89,8 +90,9 @@ class Ui_Details_song(QtWidgets.QWidget):
         self.Song_name.setText(_translate("Details_song", "Song name: " + self.res_data['Name']))
         self.Album_name.setText(_translate("Details_song", "Album name: " + self.AlbumName))
         self.Author_name.setText(_translate("Details_song", "Author name: " + self.res_data['ID_Author']))
-        self.Lyrics.setText(_translate("Details_song", "Click to open lyrics"))
+        self.Lyrics.setText(_translate("Details_song", "-> Click to open lyrics <-"))
         self.Return_to_results.setText(_translate("Details_song", "Return to results"))
+        #self.Video.setText(_translate("Details_song", "Open video on YouTube"))
  
 
 if __name__ == "__main__":

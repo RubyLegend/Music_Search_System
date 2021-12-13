@@ -2,13 +2,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 from SQL_functions import *
 import pymysql
-
+import os
+from search_genius import web_browser_fetch
 
 class Ui_Lyrics(QtWidgets.QWidget):
 
-    switch_window = QtCore.pyqtSignal()
+    switch_window = QtCore.pyqtSignal(dict)
+    url = ''
 
-    def setupUi(self, Lyrics):
+    def setupUi(self, Lyrics, url):
         Lyrics.setObjectName("Lyrics")
         Lyrics.resize(800, 600)
         self.Lyrics_field = QtWidgets.QTextEdit(Lyrics)
@@ -19,7 +21,20 @@ class Ui_Lyrics(QtWidgets.QWidget):
         self.Return_to_results.setObjectName("Return_to_results")
 
         self.retranslateUi(Lyrics)
+        self.url = url
+        self.load_lyrics_from_url()
         QtCore.QMetaObject.connectSlotsByName(Lyrics)
+
+        self.Return_to_results.clicked.connect(self.return_to_res)
+
+    def load_lyrics_from_url(self):
+        print(self.url)
+        web_browser_fetch(self.url, 0)
+        data = ''.join(open(os.path.abspath('./index.txt'), encoding="utf-8").readlines())
+        self.Lyrics_field.setText(data)
+
+    def return_to_res(self):
+        self.switch_window.emit(dict())
 
     def retranslateUi(self, Lyrics):
         _translate = QtCore.QCoreApplication.translate
