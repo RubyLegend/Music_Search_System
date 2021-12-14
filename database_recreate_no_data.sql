@@ -29,7 +29,7 @@ create table Albums
 	Name varchar(100),
 	Release_date Date,
 	primary key(ID),
-	foreign key(ID_Author) references Authors(ID)
+	foreign key(ID_Author) references Authors(ID) on delete cascade
 );
 
 -- lock table Albums write;

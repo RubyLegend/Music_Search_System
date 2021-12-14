@@ -47,6 +47,9 @@
      <height>521</height>
     </rect>
    </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
   </widget>
  </widget>
  <resources/>

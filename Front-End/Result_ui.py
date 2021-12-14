@@ -62,9 +62,11 @@ class Ui_Result(QtWidgets.QWidget):
         self.tableView = QtWidgets.QTableView(Result)
         self.tableView.setGeometry(QtCore.QRect(20, 50, 751, 521))
         self.tableView.setObjectName("tableView")
+        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
 
         self.retranslateUi(Result)
         self.fillTable(data)
+        self.tableView.resizeColumnsToContents()
         QtCore.QMetaObject.connectSlotsByName(Result)
 
         self.pushButton.clicked.connect(self.switch_window.emit)

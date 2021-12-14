@@ -75,11 +75,17 @@ class Ui_Filters(QtWidgets.QWidget):
         self.label_6.setObjectName("label_6")
         
         self.Search = QtWidgets.QPushButton(Filters)
-        self.Search.setGeometry(QtCore.QRect(160, 440, 171, 61))
+        self.Search.setGeometry(QtCore.QRect(20, 450, 171, 61))
         font = QtGui.QFont()
         font.setPointSize(18)
         self.Search.setFont(font)
         self.Search.setObjectName("Search_Button")
+        self.Add = QtWidgets.QPushButton(Filters)
+        self.Add.setGeometry(QtCore.QRect(260, 450, 171, 61))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.Add.setFont(font)
+        self.Add.setObjectName("Add_Button")
         self.label_5 = QtWidgets.QLabel(Filters)
         self.label_5.setGeometry(QtCore.QRect(102, 310, 61, 30))
         font = QtGui.QFont()
@@ -101,6 +107,7 @@ class Ui_Filters(QtWidgets.QWidget):
         self.Artist.returnPressed.connect(self.search)
         self.Song.returnPressed.connect(self.search)
         self.Search.clicked.connect(self.search)
+        self.Add.clicked.connect(self.request)
 
     def location_on_the_screen(self):
         ag = QDesktopWidget().availableGeometry()
@@ -108,6 +115,10 @@ class Ui_Filters(QtWidgets.QWidget):
         x = round(ag.width()/2 - widget.width()/2)
         y = round(ag.height()/2 - widget.height()/2)
         self.move(x, y)
+
+    def request(self):
+        get_lyrics(self.Artist.text(), self.Song.text(), 0, 0, 0, 1, 1)
+        buttonReply2 = QMessageBox.about(self, "Successfull", "All search results from Genius added to database")
 
     def retranslateUi(self, Filters):
         _translate = QtCore.QCoreApplication.translate
@@ -118,6 +129,7 @@ class Ui_Filters(QtWidgets.QWidget):
         self.label_4.setText(_translate("Filters", "Release date"))
         self.label_6.setText(_translate("Filters", "Filters"))
         self.Search.setText(_translate("Filters", "Search"))
+        self.Add.setText(_translate("Filters", "Request from\nexternal"))
         self.label_5.setText(_translate("Filters", "Genre"))
         self.Release_date.setDisplayFormat(_translate("Filters", "yyyy-mm-dd"))
         self.load_Genres()
@@ -140,25 +152,24 @@ class Ui_Filters(QtWidgets.QWidget):
             connection.commit()
 
     def search(self):
-        song = 0
-        artist = 0
-        album = 0
-        release_date = 0
-        genre = 0
+        song = None
+        artist = None
+        album = None
+        release_date = None
+        genre = None
         song_name = ''
         if(not self.Song.text() == ''):
-            song = 1
-            song_name = self.Song.text()
-            song_name = song_name.replace('(', '\(')
-            song_name = song_name.replace (')', '\)')
+            song = self.Song.text()
+            song = song.replace('(', '\(')
+            song = song.replace (')', '\)')
         if(not self.Artist.text() == ''):
-            artist = 1
+            artist = self.Artist.text()
         if(not self.Album.text() == ''):
-            album = 1
+            album = self.Album.text()
         if(self.Release_date.isEnabled() == True):
-            release_date = 1
+            release_date = self.Release_date.text()
         if(self.Genre.isEnabled() == True):
-            genre = 1
+            genre = self.Genre.currentText()
 
         if(song == artist == album == genre == release_date == 0):
             buttonReply = QMessageBox.about(self, "Error", "No search parameters supplied.")
@@ -176,6 +187,7 @@ class Ui_Filters(QtWidgets.QWidget):
             #I know, that this code isn't the best, but I'll fix it someday.
             #For now, I need simply working hell :)
             #I already see similar parts, but I need more time to make it better
+            """
             if  ( song == 1 and artist == 1 and album == 1 and release_date == 1 and genre == 1): 
                 data = select_where(connection, 'Songs.*', 'Songs, Authors, Songs_in_albums, Albums, Genres',
                                                             'Authors.ID = Songs.ID_Author and Songs_in_albums.ID_Song = Songs.ID and Albums.ID = Songs_in_albums.ID_Album and Songs.ID_Genre = Genres.ID'+
@@ -351,15 +363,21 @@ class Ui_Filters(QtWidgets.QWidget):
                 data = select_where(connection, 'Songs.*', 'Songs, Genres',
                                                             'Songs.ID_Genre = Genres.ID and Genres.Genre_name like %s', 
                                                             (self.Genre.currentText()))
-    
+            """
+            # I'll left it there for now
+            # I don't need it anymore, because I have procedure inside database (see database_functions.sql)
+            with connection.cursor() as cursor:
+                #Syntax: search_song(author, album, song, release_date, genre)
+                sql = ("call search_song(%s, %s, %s, %s, %s)")
+                cursor.execute(sql,(artist,album,song,release_date,genre))
+                data = cursor.fetchall()
             connection.commit()
         if(type(data) == tuple):    ### QuickFix: for no results
             #I'm trying to connect to my script to add song, if it isn't in my database
             #Adding request to search in external database and add to my own
             buttonReply = QMessageBox.question(self, "Error" , "This song isn't found in local database.\nDo you want to search in external database?")
             if buttonReply == QMessageBox.Yes:
-                get_lyrics(self.Artist.text(), self.Song.text(), 0, 0, 0, 1, 1)
-                buttonReply2 = QMessageBox.about(self, "Successfull", "All search results from Genius added to database")
+                self.request()
 
         else: 
             self.switch_window.emit(data)

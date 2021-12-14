@@ -330,7 +330,7 @@ def get_lyrics(artist, song, open_video, display, is_text, auto_add, debug):
         i = 1
         print("Results:")
         for x in json_data['response']['hits']:
-            print(str(i) + ": " + x['result']['title'] + " by " + x['result']['artist_names'])
+            print(str(i) + ": " + x['result']['title'] + " by " + x['result']['artist_names'], end=' ')
             i += 1
 
             if(auto_add == 1):
@@ -338,6 +338,9 @@ def get_lyrics(artist, song, open_video, display, is_text, auto_add, debug):
                 r = requests.get(url, headers=headers)
                 data = r.json()
                 add_to_database(data['response']['song'])
+                print("| Added.")
+            else: print('')
+
         if (debug == 0) :
             #print("Debug")
             #if(not re.match(song, str(json_data['response']['hits'][0]['result']['full_title'])) and is_text == 0):
@@ -354,6 +357,7 @@ def get_lyrics(artist, song, open_video, display, is_text, auto_add, debug):
                     continue
                 else:
                     break
+            
             
             web_browser_fetch(json_data['response']['hits'][choice-1]['result']['url'], display)
 
