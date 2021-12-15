@@ -46,7 +46,6 @@ def register(login, password):
                 result = insert(connection, '`Users`', '(%s, %s, %s, %s, 2, NULL, NULL)', (it+1, login, login, password))
                 ret += 1
             connection.commit()
-    
     return ret
 
 

@@ -379,7 +379,7 @@ class Ui_Filters(QtWidgets.QWidget):
             if buttonReply == QMessageBox.Yes:
                 self.request()
 
-        else: 
+        else:
             self.switch_window.emit(data)
 
 if __name__ == "__main__":

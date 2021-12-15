@@ -743,3 +743,75 @@ JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILU
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1639559552927	geckodriver	INFO	Listening on 127.0.0.1:45291
+1639559553419	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "45405" "-no-remote" "-profile" "/tmp/rust_mozprofileOOyGkp"
+*** You are running in headless mode.
+1639559557453	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=4.87384) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileOOyGkp/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:45405/devtools/browser/65c70261-9dd6-4e18-8f84-504733cd755c
+1639559559772	Marionette	INFO	Listening on port 35055
+1639559559894	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 40: unreachable code after return statement
+1639559569008	Marionette	INFO	Stopped listening on port 35055
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+[Parent 9683, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /var/tmp/portage/www-client/firefox-92.0.1/work/firefox-92.0.1/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+1639574326225	geckodriver	INFO	Listening on 127.0.0.1:52901
+1639574326724	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "53115" "-no-remote" "-profile" "/tmp/rust_mozprofileznzyhl"
+*** You are running in headless mode.
+1639574328082	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=2.27106) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileznzyhl/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53115/devtools/browser/67f07f25-c84f-4e03-a04c-8aeaaa00673e
+1639574330724	Marionette	INFO	Listening on port 42557
+1639574330762	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 40: unreachable code after return statement
+1639574340607	Marionette	INFO	Stopped listening on port 42557
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639574545722	geckodriver	INFO	Listening on 127.0.0.1:36373
+1639574546217	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "43877" "-no-remote" "-profile" "/tmp/rust_mozprofiley9NVYA"
+*** You are running in headless mode.
+1639574549560	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=4.42637) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiley9NVYA/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43877/devtools/browser/6eb83040-2ae5-4a15-8640-0a32fcf51240
+1639574551890	Marionette	INFO	Listening on port 43509
+1639574551974	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a50bb49a1a9dfc4d9565.js, line 40: unreachable code after return statement
+1639574562645	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574562650	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574562657	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574562659	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574562661	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574562663	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574562670	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574562673	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574562675	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563040	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563048	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563059	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563063	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563067	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563073	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563076	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563447	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1639574563750	Marionette	INFO	Stopped listening on port 43509
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390077,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
