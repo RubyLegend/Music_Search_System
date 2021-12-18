@@ -368,7 +368,7 @@ class Ui_Filters(QtWidgets.QWidget):
             # I don't need it anymore, because I have procedure inside database (see database_functions.sql)
             with connection.cursor() as cursor:
                 #Syntax: search_song(author, album, song, release_date, genre)
-                sql = ("call search_song(%s, %s, %s, %s, %s)")
+                sql = ("call search(%s, %s, %s, %s, %s)")
                 cursor.execute(sql,(artist,album,song,release_date,genre))
                 data = cursor.fetchall()
             connection.commit()

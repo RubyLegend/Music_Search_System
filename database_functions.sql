@@ -90,3 +90,94 @@ begin
 end//
 
 delimiter ;
+
+drop procedure if exists search;
+
+delimiter //
+
+create procedure search(
+    in _Author varchar(100), 
+    in _Album varchar(100), 
+    in _Song varchar(100),
+    in _Release_date date,
+    in _Genre varchar(15)
+)
+begin
+    set _Album = Replace(_Album, '\(', '\\\\('); /*That quadro backslash is hella scary*/
+    set _Album = Replace(_Album, '\)', '\\\\)');
+    set _Author = Replace(_Author, '\(', '\\\\(');
+    set _Author = Replace(_Author, '\)', '\\\\)');
+    set _Song = Replace(_Song, '\(', '\\\\(');
+    set _Song = Replace(_Song, '\)', '\\\\)');
+    /*select _Album, _Author, _Song, _Release_date, _Genre; /* For input debugging */
+    set @input = 'select * from song_data';
+    set @first_param = 0;
+
+    /*select fields*/
+    /*if _Song is not null then
+        set @input = concat(@input, 'Name');
+    end if;
+    if _Author is not NULL then 
+        set @input = concat(@input, ', Artists');
+    end if;
+    if _Release_date is not null then
+        set @input = concat(@input, ', `Release_date`');
+    end if;
+    if _Album is not NULL then 
+        set @input = concat(@input, ', Album');
+    end if;
+    if _Genre is not NULL then 
+        set @input = concat(@input, ', Genre');
+    end if;*/
+
+    /*`Where` zone*/
+    if _Author is not NULL then 
+        if @first_param = 0 then
+            set @input = concat(@input, " where regexp_like(Artists, '.*(", _Author, ").*')");
+            set @first_param = 1;
+        else
+            set @input = concat(@input, " and regexp_like(Artists, '.*(", _Author, ").*')");
+        end if;
+    end if;
+    if _Album is not NULL then 
+        if @first_param = 0 then
+            set @input = concat(@input, " where regexp_like(Album, '.*(", _Album, ").*')");
+            set @first_param = 1;
+        else
+            set @input = concat(@input, " and regexp_like(Album, '.*(", _Album, ").*')");
+        end if;
+    end if;
+    if _Genre is not NULL then 
+        if @first_param = 0 then
+            set @input = concat(@input, " where regexp_like(Genre, '.*(", _Genre, ").*')");
+            set @first_param = 1;
+        else
+            set @input = concat(@input, " and regexp_like(Genre, '.*(", _Genre, ").*')");
+        end if;
+    end if;
+    if _Song is not NULL then
+        if @first_param = 0 then
+            set @input = concat(@input, " where regexp_like(Name, '.*(", _Song, ").*')");
+            set @first_param = 1;
+        else
+            set @input = concat(@input, " and regexp_like(Name, '.*(", _Song, ").*')");
+        end if;
+        /*select 'Song name detected' as '';*/
+    end if;
+    if _Release_date is not NULL then
+        if @first_param = 0 then
+            set @input = concat(@input, " where regexp_like(`Release date`, '.*(", _Release_date, ").*')");
+            set @first_param = 1;
+        else
+            set @input = concat(@input, " and regexp_like(`Release date`, '.*(", _Release_date, ").*')");
+        end if;
+        /*select 'Release date detected' as '';*/
+    end if;
+
+    /*select @input as '';*/
+    prepare stmt from @input;
+    execute stmt;
+    deallocate prepare stmt;
+end//
+
+delimiter ;

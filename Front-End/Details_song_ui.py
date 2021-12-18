@@ -56,7 +56,7 @@ class Ui_Details_song(QtWidgets.QWidget):
         self.verticalLayout.addWidget(self.Return_to_results)
 
         self.res_data = data
-        self.get_album()
+        #self.get_album()
 
         self.retranslateUi(Details_song)
         QtCore.QMetaObject.connectSlotsByName(Details_song)        
@@ -68,28 +68,23 @@ class Ui_Details_song(QtWidgets.QWidget):
         self.switch_window.emit(list())
 
     def open_lyrics(self):
-        self.switch_window2.emit(self.res_data['ID_Lyrics'])
-
+        self.switch_window2.emit(self.res_data['Lyrics URL'])
+    """
     def get_album(self):
-        connection = pymysql.connect(host='localhost',
-                             user='root',
-                             password='YAELfvk5Jgt8qRTc',
-                             database='Music_Search_System',
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
+        connection = pymysql.connect(...)
 
 
         with connection:
             self.AlbumName = select_where(connection, "Name", "Albums join Songs_in_albums as sia on Albums.ID = sia.ID_Album", "sia.ID_Song = %s", self.res_data['ID'])[0]['Name']
             connection.commit()
-
+    """
     def retranslateUi(self, Details_song):
         _translate = QtCore.QCoreApplication.translate
         Details_song.setWindowTitle(_translate("Details_song", "Music Search System | Details"))
         self.label_6.setText(_translate("Details_song", "Details"))
         self.Song_name.setText(_translate("Details_song", "Song name: " + self.res_data['Name']))
-        self.Album_name.setText(_translate("Details_song", "Album name: " + self.AlbumName))
-        self.Author_name.setText(_translate("Details_song", "Author name: " + self.res_data['ID_Author']))
+        self.Album_name.setText(_translate("Details_song", "Album name: " + self.res_data['Album']))
+        self.Author_name.setText(_translate("Details_song", "Author(s) name: " + self.res_data['Artists']))
         self.Lyrics.setText(_translate("Details_song", "-> Click to open lyrics <-"))
         self.Return_to_results.setText(_translate("Details_song", "Return to results"))
         #self.Video.setText(_translate("Details_song", "Open video on YouTube"))

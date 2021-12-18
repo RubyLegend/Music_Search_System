@@ -76,22 +76,27 @@ class Ui_Result(QtWidgets.QWidget):
         self.switch_window2.emit(self.res_data[click.row()])
 
     def fillTable(self, data):
-        data_out = pd.DataFrame(columns=['ID','Name','Author','Release date','Genre'])       
-
+        data_out = pd.DataFrame(columns=['Name','Author(s)','Release date','Genre'])       
+        
+        """
         Author = ''
         Genre = ''
-        
+        """
+
         for x in data:
+            """
             x['ID_Author'] = resolve_data('Name', x['ID_Author'], 'Authors')
             x['ID_Genre'] = resolve_data('Genre_name', x['ID_Genre'], 'Genres')
             x['ID_Lyrics'] = resolve_data('URL', x['ID_Lyrics'], 'Lyrics')
+            """
 
-            data_out = data_out.append({'ID': x['ID'],
-                                        'Name': x['Name'],
-                                        'Author': x['ID_Author'], #resolved
-                                        'Release date': x['Release_date'],
-                                        'Genre': x['ID_Genre']},  #resolved
-                                        ignore_index=True)
+            print(x)
+            data_out = data_out.append({'Name': x['Name'],
+                                        'Author(s)': x['Artists'], #resolved
+                                        'Release date': x['Release date'],
+                                        'Album': x['Album'],
+                                        'Genre': x['Genre']},  #resolved
+                                        ignore_index = True)
 
         self.res_data = data
 

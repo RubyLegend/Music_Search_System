@@ -815,3 +815,39 @@ JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILU
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1639844120634	geckodriver	INFO	Listening on 127.0.0.1:50069
+1639844121142	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "60183" "-no-remote" "-profile" "/tmp/rust_mozprofilejodepl"
+*** You are running in headless mode.
+1639844121923	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=1.39614) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilejodepl/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60183/devtools/browser/f3e60e36-c169-4aa3-bd97-1c81bf3a5b99
+1639844123170	Marionette	INFO	Listening on port 34475
+1639844123269	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 40: unreachable code after return statement
+1639844129338	Marionette	INFO	Stopped listening on port 34475
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+[Parent 32152, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /var/tmp/portage/www-client/firefox-92.0.1/work/firefox-92.0.1/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639844195925	geckodriver	INFO	Listening on 127.0.0.1:47169
+1639844196437	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "39185" "-no-remote" "-profile" "/tmp/rust_mozprofileVMmjhz"
+*** You are running in headless mode.
+1639844196814	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.812178) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileVMmjhz/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:39185/devtools/browser/f24b8f98-3de9-410a-be78-665092ac0636
+1639844197793	Marionette	INFO	Listening on port 41907
+1639844197873	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 40: unreachable code after return statement
+1639844203468	Marionette	INFO	Stopped listening on port 41907
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+[Parent 33456, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /var/tmp/portage/www-client/firefox-92.0.1/work/firefox-92.0.1/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
