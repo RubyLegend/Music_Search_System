@@ -44,6 +44,7 @@ class Ui_Details_song(QtWidgets.QWidget):
         font.setPointSize(20)
         self.Author_name.setFont(font)
         self.Author_name.setObjectName("Author_name")
+        self.Author_name.setWordWrap(True)
         self.verticalLayout.addWidget(self.Author_name)
         self.Lyrics = QtWidgets.QPushButton(Details_song)
         self.Lyrics.setObjectName("Lyrics")

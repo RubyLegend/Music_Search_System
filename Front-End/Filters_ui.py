@@ -7,12 +7,21 @@ from search_genius import *
 class Ui_Filters(QtWidgets.QWidget):
     
     switch_window = QtCore.pyqtSignal(list)
+    switch_window2 = QtCore.pyqtSignal()
     
     def setupUi(self, Filters):
         Filters.setObjectName("Filters")
         Filters.resize(476, 600)
         Filters.setMinimumSize(QtCore.QSize(476, 600))
         Filters.setMaximumSize(QtCore.QSize(476, 600))
+
+        self.Logout = QtWidgets.QPushButton(Filters)
+        self.Logout.setGeometry(QtCore.QRect(5, 5, 171, 40))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.Logout.setFont(font)
+        self.Logout.setObjectName("Search_Button")
+
         self.label_2 = QtWidgets.QLabel(Filters)
         self.label_2.setGeometry(QtCore.QRect(100, 160, 71, 30))
         font = QtGui.QFont()
@@ -108,6 +117,7 @@ class Ui_Filters(QtWidgets.QWidget):
         self.Song.returnPressed.connect(self.search)
         self.Search.clicked.connect(self.search)
         self.Add.clicked.connect(self.request)
+        self.Logout.clicked.connect(self.logout)
 
     def location_on_the_screen(self):
         ag = QDesktopWidget().availableGeometry()
@@ -116,6 +126,9 @@ class Ui_Filters(QtWidgets.QWidget):
         y = round(ag.height()/2 - widget.height()/2)
         self.move(x, y)
 
+    def logout(self):
+        self.switch_window2.emit()
+
     def request(self):
         get_lyrics(self.Artist.text(), self.Song.text(), 0, 0, 0, 1, 1)
         buttonReply2 = QMessageBox.about(self, "Successfull", "All search results from Genius added to database")
@@ -123,6 +136,7 @@ class Ui_Filters(QtWidgets.QWidget):
     def retranslateUi(self, Filters):
         _translate = QtCore.QCoreApplication.translate
         Filters.setWindowTitle(_translate("Filters", "Music Search System | Search Filters"))
+        self.Logout.setText(_translate("Filters", "Logout"))
         self.label_2.setText(_translate("Filters", "Album"))
         self.label.setText(_translate("Filters", "Artist"))
         self.label_3.setText(_translate("Filters", "Song"))

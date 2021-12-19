@@ -23,7 +23,11 @@ def check_credentials(login, password):
             result = select_where(connection, '*', '`Users`', 'Email = %s and Password = %s', (login, password))
             if(result == ()):
                 print("Wrong password.")
-            else: ret += 1
+            else: 
+                with connection.cursor() as cursor:
+                    sql = "update Users set Last_login = now() where ID = %s"
+                    cursor.execute(sql, result[0]['ID'])
+                ret += 1
             connection.commit()
     return ret
 
@@ -43,7 +47,7 @@ def register(login, password):
             result = select_where(connection, '*', '`Users`', 'Email = %s', login)
             if(result == ()):
                 it = int(select(connection,'count(*)', '`Users`')[0]['count(*)'])        
-                result = insert(connection, '`Users`', '(%s, %s, %s, %s, 2, NULL, NULL)', (it+1, login, login, password))
+                result = insert(connection, '`Users`', '(%s, %s, %s, %s, 2, NULL, now())', (it+1, login, login, password))
                 ret += 1
             connection.commit()
     return ret
@@ -124,6 +128,14 @@ class Ui_login(QtWidgets.QWidget):
                     print('OK clicked.')
             elif self.Pass.text() == '':
                 buttonReply = QMessageBox.about(self, "Error", "No password entered.")
+                if buttonReply == QMessageBox.Ok:
+                    print('OK clicked.')
+            elif len(self.Pass.text()) < 8:
+                buttonReply = QMessageBox.about(self, "Error", "Password is too short.\nRequired password between 8 and 30 symbols length.")
+                if buttonReply == QMessageBox.Ok:
+                    print('OK clicked.')
+            elif len(self.Pass.text()) > 30:
+                buttonReply = QMessageBox.about(self, "Error", "Password is too long.\nRequired password between 8 and 30 symbols length.")
                 if buttonReply == QMessageBox.Ok:
                     print('OK clicked.')
             else:

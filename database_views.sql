@@ -1,5 +1,5 @@
 use Music_Search_System;
-/*
+
 drop view if exists song_data;
 
 create view song_data as
@@ -13,7 +13,6 @@ create view song_data as
       and s.ID_Genre = g.ID 
       and l.ID = s.ID_Lyrics
     group by s.Name, s.Release_date, al.Name, g.Genre_name, l.URL;
-*/
 
 drop view if exists song_author;
 

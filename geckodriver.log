@@ -851,3 +851,20 @@ JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILU
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1639934657504	geckodriver	INFO	Listening on 127.0.0.1:45241
+1639934658007	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "37643" "-no-remote" "-profile" "/tmp/rust_mozprofile4FCpfy"
+*** You are running in headless mode.
+1639934659526	Marionette	INFO	Marionette enabled
+Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=2.2907) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile4FCpfy/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:37643/devtools/browser/2be3a603-d5dd-4f25-a8d6-65847f78a25e
+1639934661194	Marionette	INFO	Listening on port 42703
+1639934661234	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 13: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 29: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-a3e880f51eb8db7c9c3e.js, line 40: unreachable code after return statement
+1639934668900	Marionette	INFO	Stopped listening on port 42703
+JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+

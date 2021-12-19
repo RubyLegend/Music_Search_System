@@ -21,6 +21,9 @@ class Controller:
         self.login.setupUi(self.login)
         self.login.switch_window.connect(self.show_filters)
         self.login.show()
+        if self.filters_exist == 1:
+            self.window.close()
+            self.filters_exist = 0
 
     def show_filters(self):
         if(self.filters_exist == 0):
@@ -28,6 +31,7 @@ class Controller:
             self.filters_exist = 1
             self.window.setupUi(self.window)
             self.window.switch_window.connect(self.show_result)
+            self.window.switch_window2.connect(self.show_login)
         if(self.result_exist == 1):
             self.result.close()
             self.result_exist = 0
