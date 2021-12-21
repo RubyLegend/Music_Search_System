@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-"""A Simple Script for Extracting Data from a Webpage 
-This script allows the user to extract data from a webapge and then export the data to a csv file with column(s).
-"""
+# Script to export data from Genius and put it into local database
+
 # importing libraries
 import requests
 # import cloudscraper #cloudflare v2 block
@@ -14,85 +13,10 @@ import html2text
 import os
 import re
 import pymysql.cursors
+from SQL_functions import *
 
 # Connection data to Genius
-client_access_token = '2ZDQIM4R4llywiMVb12KB9FJLFchyvQb9WHMpf1bTsAFUr-HSA1mvWE4ORpcH0ZV'
-
-#Connection data to Spotify
-client_id = '74d9ae9d573f400d9d5bd276ed9718d6'
-client_secret = 'e8c97c838925412d88d381612673efc4'
-
-def get_from_spotify(artist, song):
-    auth_url = 'https://accounts.spotify.com/api/token'
-    
-    data = {
-        'grant_type': 'client_credentials',
-        'client_id': client_id,
-        'client_secret': client_secret,
-    }
-
-    auth_response = requests.post(auth_url, data=data)
-    access_token = auth_response.json().get('access_token')
-
-    #print(access_token)
-
-    base_url = 'https://api.spotify.com/v1/search?'
-    
-    headers = {
-        'Authorization': 'Bearer {}'.format(access_token)
-    }
-    
-    params = 'q='
-    
-    params = ''.join([params,song])
-    
-    if(artist != ''):
-        params = '&'.join([params, ''.join(["artist=", artist])])
-    
-
-    full_url = ''.join([base_url,params,'&type=track'])
-    
-    #print(full_url)
-
-    response = requests.get(full_url, headers=headers)
-    
-    track_id = str(response.json()['tracks']['items'][0]['id'])
-    
-    base_url = 'https://api.spotify.com/v1/tracks/'
-    full_url = ''.join([base_url,track_id])
-
-    response = requests.get(full_url, headers=headers)
-    
-    ### Stopped on a problem - no genres field in response
-    #for x in response.json()['artists'][0]:
-    #    print(x)
-
-def insert(connection, table, values, parameters):
-    with connection.cursor() as cursor:
-        # Create a new record
-        sql = "INSERT INTO " + table + " VALUES " + values
-        cursor.execute(sql, parameters)
-
-#Just a simple select with more than one `where` parameter
-def select_where(connection, field, table, where_field, parameters):
-    result = ''
-    with connection.cursor() as cursor:
-        # Read all records
-        sql = "SELECT " + field + " FROM " + table + " where " + where_field
-        cursor.execute(sql, parameters)
-        result = cursor.fetchall()
-     
-    return result
-
-def select(connection, field, table):
-    result = ''
-    with connection.cursor() as cursor:
-        # Read all records
-        sql = "SELECT " + field + " FROM " + table
-        cursor.execute(sql)
-        result = cursor.fetchall()
-    
-    return result
+client_access_token = os.getenv('Genius_Token')
 
 #Working, don't touch
 def write_artists_songs(connection, data):
@@ -290,7 +214,8 @@ def web_browser_fetch(url, display):
             # Provide html elements' attributes to extract the data 
             lyrics_html = parse.find_all('div', attrs={'data-lyrics-container': 'true'})
             #if Genius loaded old site
-            lyrics_html = lyrics_html + parse.find_all('section', attrs={'ng-hide': 'lyrics_ctrl.should_show_lyrics_edit_form() || lyrics_ctrl.should_show_lyrics_edit_proposal_form()'})
+            lyrics_html = lyrics_html + parse.find_all('section', attrs={'class': '',
+                                                                         'ng-hide': 'lyrics_ctrl.should_show_lyrics_edit_form() || lyrics_ctrl.should_show_lyrics_edit_proposal_form()'})
     
             #Converting html lyrics to text
             lyrics = ''
@@ -374,44 +299,55 @@ def get_lyrics(artist, song, open_video, display, is_text, auto_add, debug):
                 if(found == bool(0)):
                     print("No video found in database")
 
+def checkToken():
+    if(not len(client_access_token) == 64):
+        return False
+    else: return True
 
 if __name__ == "__main__":
-        artist = ''
-        song = ''
-        open_video = 0
-        display = 0
-        text = 0
-        skip_first = 1
-        auto_add = 0
-        debug = 0
-        for x in sys.argv:
-            if(skip_first == 1):
-                skip_first = 0
-                continue
-            if(re.match('--artist=.*', x) and artist == ''):
-                artist = re.sub('--artist=', '', x)
-            elif(re.match('--song=.*', x) and song == ''):
-                song = re.sub('--song=', '', x)
-            elif(re.match('--video', x)):
-                open_video = 1
-            elif(re.match('--display', x)):
-                display = 1
-            elif(re.match('--text=.*', x)):
-                text = 1
-                song = re.sub('--text=', '', x)
-            elif(re.match('--debug', x)):
-                debug = 1
-            elif(re.match('--auto_add', x)):
-                auto_add = 1
-            else: print("Wrong parameter found: \"" + x + "\", ignored")
-        
-        if(text == 0):
-            print("Artist: " + artist)
-            print("Song: " + song)
+        print('Checking for genius token variable...')
+        if(client_access_token == None):
+            print("Genius access token isn't set. Please, set 'Genius_Token' variable inside shell.")       
+        elif(not checkToken()):
+            print("Wrong token. Please re-check your variable.")
         else:
-            print("Text: " + song)
-        if((artist == '' and song != '')
-        or (artist != '' and song != '')):
-            get_lyrics(artist, song, open_video, display, text, auto_add, debug)
-        else:
-            print("Not enough arguments. Need at least --song or --text for working.")
+
+            artist = ''
+            song = ''
+            open_video = 0
+            display = 0
+            text = 0
+            skip_first = 1
+            auto_add = 0
+            debug = 0
+            for x in sys.argv:
+                if(skip_first == 1):
+                    skip_first = 0
+                    continue
+                if(re.match('--artist=.*', x) and artist == ''):
+                    artist = re.sub('--artist=', '', x)
+                elif(re.match('--song=.*', x) and song == ''):
+                    song = re.sub('--song=', '', x)
+                elif(re.match('--video', x)):
+                    open_video = 1
+                elif(re.match('--display', x)):
+                    display = 1
+                elif(re.match('--text=.*', x)):
+                    text = 1
+                    song = re.sub('--text=', '', x)
+                elif(re.match('--debug', x)):
+                    debug = 1
+                elif(re.match('--auto_add', x)):
+                    auto_add = 1
+                else: print("Wrong parameter found: \"" + x + "\", ignored")
+
+            if(text == 0):
+                print("Artist: " + artist)
+                print("Song: " + song)
+            else:
+                print("Text: " + song)
+            if((artist == '' and song != '')
+            or (artist != '' and song != '')):
+                get_lyrics(artist, song, open_video, display, text, auto_add, debug)
+            else:
+                print("Not enough arguments. Need at least --song or --text for working.")

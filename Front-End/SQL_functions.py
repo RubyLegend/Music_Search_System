@@ -28,3 +28,8 @@ def select(connection, field, table):
         result = cursor.fetchall()
     
     return result
+
+def update(connection, table, _set, where, parameters):
+    with connection.cursor() as cursor:
+        sql = "UPDATE " + table + " SET " + _set + " WHERE " + where
+        cursor.execute(sql, parameters)

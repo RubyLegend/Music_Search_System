@@ -6,9 +6,11 @@ from Filters_ui import Ui_Filters as Filters
 from Result_ui import Ui_Result as Result
 from Details_song_ui import Ui_Details_song as Details_song
 from Lyrics_ui import Ui_Lyrics as Lyrics
+from Profile_ui import Ui_Profile as Profile
 
 class Controller:
     filters_exist = 0
+    profile_exist = 0
     result_exist = 0
     login_exist = 0
     details_exist = 0
@@ -25,21 +27,35 @@ class Controller:
             self.window.close()
             self.filters_exist = 0
 
-    def show_filters(self):
+    def show_filters(self, login):
         if(self.filters_exist == 0):
             self.window = Filters()
             self.filters_exist = 1
-            self.window.setupUi(self.window)
+            self.window.setupUi(self.window, login)
             self.window.switch_window.connect(self.show_result)
             self.window.switch_window2.connect(self.show_login)
+            self.window.switch_window3.connect(self.show_profile)
         if(self.result_exist == 1):
             self.result.close()
             self.result_exist = 0
         if(self.login_exist == 1):
             self.login.close()
             self.login_exist = 0
+        if(self.profile_exist == 1):
+            self.profile.close()
+            self.profile_exist = 0
+            self.window.renew_nickname(self.window, login)
         self.window.show()
     
+    def show_profile(self, login):
+        self.profile = Profile()
+        self.profile_exist = 1
+        self.profile.setupUi(self.profile, login)
+        self.profile.switch_window.connect(self.show_filters)
+        self.profile.show()
+        self.window.hide()
+
+
     def show_result(self, data):
         if(self.result_exist == 0):
             self.result = Result()

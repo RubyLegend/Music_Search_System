@@ -1,5 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
+from PyQt5.QtCore import QRect
+from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
 from SQL_functions import *
 import pymysql
 from selenium import webdriver
@@ -61,12 +63,20 @@ class Ui_Details_song(QtWidgets.QWidget):
 
         self.retranslateUi(Details_song)
         QtCore.QMetaObject.connectSlotsByName(Details_song)        
-        
+        self.location_on_the_screen()
+
         self.Return_to_results.clicked.connect(self.return_button)
         self.Lyrics.clicked.connect(self.open_lyrics)
 
     def return_button(self):
         self.switch_window.emit(list())
+    
+    def location_on_the_screen(self):
+        ag = QDesktopWidget().availableGeometry()
+        widget = self.geometry()
+        x = ag.width()/2 - widget.width()/2
+        y = ag.height()/2 - widget.height()/2
+        self.move(x, y)
 
     def open_lyrics(self):
         self.switch_window2.emit(self.res_data['Lyrics URL'])

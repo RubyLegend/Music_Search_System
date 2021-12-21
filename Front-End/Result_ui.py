@@ -1,5 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
+from PyQt5.QtCore import QRect
+from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
 import pandas as pd
 from SQL_functions import *
 import pymysql
@@ -47,7 +49,7 @@ def resolve_data(field, data, table):
 
 class Ui_Result(QtWidgets.QWidget):
     
-    switch_window = QtCore.pyqtSignal()
+    switch_window = QtCore.pyqtSignal(str)
     switch_window2 = QtCore.pyqtSignal(dict)
     res_data = ''
 
@@ -67,10 +69,21 @@ class Ui_Result(QtWidgets.QWidget):
         self.retranslateUi(Result)
         self.fillTable(data)
         self.tableView.resizeColumnsToContents()
+        self.location_on_the_screen()
         QtCore.QMetaObject.connectSlotsByName(Result)
 
-        self.pushButton.clicked.connect(self.switch_window.emit)
+        self.pushButton.clicked.connect(self.back_to_filters)
         self.tableView.doubleClicked.connect(self.handleDoubleClick)
+
+    def back_to_filters(self):
+        self.switch_window.emit(None)
+
+    def location_on_the_screen(self):
+        ag = QDesktopWidget().availableGeometry()
+        widget = self.geometry()
+        x = ag.width()/2 - widget.width()/2
+        y = ag.height()/2 - widget.height()/2
+        self.move(x, y)
 
     def handleDoubleClick(self, click):
         self.switch_window2.emit(self.res_data[click.row()])
@@ -78,17 +91,8 @@ class Ui_Result(QtWidgets.QWidget):
     def fillTable(self, data):
         data_out = pd.DataFrame(columns=['Name','Author(s)','Release date','Genre'])       
         
-        """
-        Author = ''
-        Genre = ''
-        """
 
         for x in data:
-            """
-            x['ID_Author'] = resolve_data('Name', x['ID_Author'], 'Authors')
-            x['ID_Genre'] = resolve_data('Genre_name', x['ID_Genre'], 'Genres')
-            x['ID_Lyrics'] = resolve_data('URL', x['ID_Lyrics'], 'Lyrics')
-            """
 
             print(x)
             data_out = data_out.append({'Name': x['Name'],

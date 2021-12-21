@@ -8,8 +8,12 @@ class Ui_Filters(QtWidgets.QWidget):
     
     switch_window = QtCore.pyqtSignal(list)
     switch_window2 = QtCore.pyqtSignal()
-    
-    def setupUi(self, Filters):
+    switch_window3 = QtCore.pyqtSignal(str)
+
+    login = ''
+
+    def setupUi(self, Filters, login):
+        self.login = login
         Filters.setObjectName("Filters")
         Filters.resize(476, 600)
         Filters.setMinimumSize(QtCore.QSize(476, 600))
@@ -20,7 +24,14 @@ class Ui_Filters(QtWidgets.QWidget):
         font = QtGui.QFont()
         font.setPointSize(18)
         self.Logout.setFont(font)
-        self.Logout.setObjectName("Search_Button")
+        self.Logout.setObjectName("Logout")
+
+        self.Profile = QtWidgets.QPushButton(Filters)
+        self.Profile.setGeometry(QtCore.QRect(300, 5, 171, 40))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.Profile.setFont(font)
+        self.Profile.setObjectName("Profile")
 
         self.label_2 = QtWidgets.QLabel(Filters)
         self.label_2.setGeometry(QtCore.QRect(100, 160, 71, 30))
@@ -77,7 +88,8 @@ class Ui_Filters(QtWidgets.QWidget):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.label_6 = QtWidgets.QLabel(Filters)
-        self.label_6.setGeometry(QtCore.QRect(210, 60, 81, 18))
+        self.label_6.setGeometry(QtCore.QRect(0, 60, 476, 32))
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         font = QtGui.QFont()
         font.setPointSize(18)
         self.label_6.setFont(font)
@@ -118,6 +130,14 @@ class Ui_Filters(QtWidgets.QWidget):
         self.Search.clicked.connect(self.search)
         self.Add.clicked.connect(self.request)
         self.Logout.clicked.connect(self.logout)
+        self.Profile.clicked.connect(self.profile)
+
+    def renew_nickname(self, Filters, nickname):
+        self.login = nickname
+        self.retranslateUi(Filters)
+
+    def profile(self):
+        self.switch_window3.emit(self.login)
 
     def location_on_the_screen(self):
         ag = QDesktopWidget().availableGeometry()
@@ -137,11 +157,12 @@ class Ui_Filters(QtWidgets.QWidget):
         _translate = QtCore.QCoreApplication.translate
         Filters.setWindowTitle(_translate("Filters", "Music Search System | Search Filters"))
         self.Logout.setText(_translate("Filters", "Logout"))
+        self.Profile.setText(_translate("Filters", "Profile"))
         self.label_2.setText(_translate("Filters", "Album"))
         self.label.setText(_translate("Filters", "Artist"))
         self.label_3.setText(_translate("Filters", "Song"))
         self.label_4.setText(_translate("Filters", "Release date"))
-        self.label_6.setText(_translate("Filters", "Filters"))
+        self.label_6.setText(_translate("Filters", "Welcome back, " + self.login))
         self.Search.setText(_translate("Filters", "Search"))
         self.Add.setText(_translate("Filters", "Request from\nexternal"))
         self.label_5.setText(_translate("Filters", "Genre"))

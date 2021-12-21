@@ -113,23 +113,6 @@ begin
     set @input = 'select * from song_data';
     set @first_param = 0;
 
-    /*select fields*/
-    /*if _Song is not null then
-        set @input = concat(@input, 'Name');
-    end if;
-    if _Author is not NULL then 
-        set @input = concat(@input, ', Artists');
-    end if;
-    if _Release_date is not null then
-        set @input = concat(@input, ', `Release_date`');
-    end if;
-    if _Album is not NULL then 
-        set @input = concat(@input, ', Album');
-    end if;
-    if _Genre is not NULL then 
-        set @input = concat(@input, ', Genre');
-    end if;*/
-
     /*`Where` zone*/
     if _Author is not NULL then 
         if @first_param = 0 then

@@ -1,5 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
+from PyQt5.QtCore import QRect
+from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
 from SQL_functions import *
 import pymysql
 import os
@@ -13,9 +15,12 @@ class Ui_Lyrics(QtWidgets.QWidget):
     def setupUi(self, Lyrics, url):
         Lyrics.setObjectName("Lyrics")
         Lyrics.resize(800, 600)
+        Lyrics.setMinimumSize(QtCore.QSize(800, 600))
+        Lyrics.setMaximumSize(QtCore.QSize(800, 600))
         self.Lyrics_field = QtWidgets.QTextEdit(Lyrics)
         self.Lyrics_field.setGeometry(QtCore.QRect(10, 10, 771, 551))
         self.Lyrics_field.setObjectName("Lyrics_field")
+        self.Lyrics_field.setReadOnly(True)
         self.Return_to_results = QtWidgets.QPushButton(Lyrics)
         self.Return_to_results.setGeometry(QtCore.QRect(10, 560, 771, 34))
         self.Return_to_results.setObjectName("Return_to_results")
@@ -23,6 +28,7 @@ class Ui_Lyrics(QtWidgets.QWidget):
         self.retranslateUi(Lyrics)
         self.url = url
         self.load_lyrics_from_url()
+        self.location_on_the_screen()
         QtCore.QMetaObject.connectSlotsByName(Lyrics)
 
         self.Return_to_results.clicked.connect(self.return_to_res)
@@ -32,6 +38,13 @@ class Ui_Lyrics(QtWidgets.QWidget):
         web_browser_fetch(self.url, 0)
         data = ''.join(open(os.path.abspath('./index.txt'), encoding="utf-8").readlines())
         self.Lyrics_field.setText(data)
+    
+    def location_on_the_screen(self):
+        ag = QDesktopWidget().availableGeometry()
+        widget = self.geometry()
+        x = ag.width()/2 - widget.width()/2
+        y = ag.height()/2 - widget.height()/2
+        self.move(x, y)
 
     def return_to_res(self):
         self.switch_window.emit(dict())

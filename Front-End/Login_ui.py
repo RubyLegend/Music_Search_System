@@ -53,9 +53,24 @@ def register(login, password):
     return ret
 
 
+def get_Nickname(login):
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='YAELfvk5Jgt8qRTc',
+                                 database='Music_Search_System',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    Nickname = ''
+    with connection:
+        Nickname = select_where(connection, 'Nickname', 'Users', 'Email = %s', login)
+        connection.commit()
+    
+    return Nickname[0]['Nickname']
+
+
 class Ui_login(QtWidgets.QWidget):
 
-    switch_window = QtCore.pyqtSignal(int)
+    switch_window = QtCore.pyqtSignal(str)
 
     def setupUi(self, login):
         login.setObjectName("login")
@@ -180,7 +195,7 @@ class Ui_login(QtWidgets.QWidget):
                         print('OK clicked.')
                 else:
                     print('Connection successfull.')
-                    self.switch_window.emit(2)
+                    self.switch_window.emit(get_Nickname(login))
 
 
     def retranslateUi(self, login):

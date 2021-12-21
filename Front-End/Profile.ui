@@ -40,10 +40,10 @@
     </font>
    </property>
    <property name="text">
-    <string>Album</string>
+    <string>Email</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Song">
+  <widget class="QLineEdit" name="Password">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -52,13 +52,25 @@
      <height>32</height>
     </rect>
    </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::PasswordEchoOnEdit</enum>
+   </property>
+   <property name="placeholderText">
+    <string>********</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>60</x>
      <y>110</y>
-     <width>53</width>
+     <width>101</width>
      <height>30</height>
     </rect>
    </property>
@@ -68,10 +80,10 @@
     </font>
    </property>
    <property name="text">
-    <string>Artist</string>
+    <string>Nickname</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Album">
+  <widget class="QLineEdit" name="Email">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -84,9 +96,9 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>62</x>
      <y>210</y>
-     <width>53</width>
+     <width>101</width>
      <height>30</height>
     </rect>
    </property>
@@ -96,15 +108,15 @@
     </font>
    </property>
    <property name="text">
-    <string>Song</string>
+    <string>Password</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>10</x>
      <y>260</y>
-     <width>131</width>
+     <width>151</width>
      <height>30</height>
     </rect>
    </property>
@@ -114,16 +126,16 @@
     </font>
    </property>
    <property name="text">
-    <string>Release date</string>
+    <string>Phone number</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>60</y>
-     <width>476</width>
-     <height>22</height>
+     <y>39</y>
+     <width>481</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -132,13 +144,13 @@
     </font>
    </property>
    <property name="text">
-    <string>Filters</string>
+    <string>Edit profile</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Artist">
+  <widget class="QLineEdit" name="Nickname">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -148,34 +160,11 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="Genre">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>310</y>
-     <width>251</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>None</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Electronic</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>450</y>
+     <x>260</x>
+     <y>470</y>
      <width>171</width>
      <height>61</height>
     </rect>
@@ -186,15 +175,15 @@
     </font>
    </property>
    <property name="text">
-    <string>Search</string>
+    <string>Commit</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>102</x>
+     <x>62</x>
      <y>310</y>
-     <width>61</width>
+     <width>101</width>
      <height>30</height>
     </rect>
    </property>
@@ -204,13 +193,10 @@
     </font>
    </property>
    <property name="text">
-    <string>Genre</string>
+    <string>Last login</string>
    </property>
   </widget>
-  <widget class="QDateTimeEdit" name="Release_date">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
+  <widget class="QLineEdit" name="Phone_num">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -219,44 +205,25 @@
      <height>32</height>
     </rect>
    </property>
-   <property name="displayFormat">
-    <string>yyyy-mm-dd</string>
-   </property>
-   <property name="calendarPopup">
-    <bool>true</bool>
-   </property>
   </widget>
-  <widget class="QCheckBox" name="Release_date_checkBox">
+  <widget class="QLineEdit" name="Last_login">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>260</y>
-     <width>21</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="Genre_checkBox">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
+     <x>180</x>
      <y>310</y>
-     <width>21</width>
-     <height>22</height>
+     <width>251</width>
+     <height>32</height>
     </rect>
    </property>
-   <property name="text">
-    <string/>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>450</y>
+     <x>40</x>
+     <y>470</y>
      <width>171</width>
      <height>61</height>
     </rect>
@@ -267,10 +234,22 @@
     </font>
    </property>
    <property name="text">
-    <string>Request from
-external</string>
+    <string>Commit</string>
    </property>
   </widget>
+  <zorder>Email</zorder>
+  <zorder>label_2</zorder>
+  <zorder>Password</zorder>
+  <zorder>label</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_6</zorder>
+  <zorder>Nickname</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>label_5</zorder>
+  <zorder>Phone_num</zorder>
+  <zorder>Last_login</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
  <resources/>
  <connections/>
