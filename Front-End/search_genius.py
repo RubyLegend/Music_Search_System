@@ -16,7 +16,7 @@ import pymysql.cursors
 from SQL_functions import *
 
 # Connection data to Genius
-client_access_token = os.getenv('Genius_Token')
+client_access_token = os.getenv('GeniusToken')
 
 #Working, don't touch
 def write_artists_songs(connection, data):
@@ -43,8 +43,13 @@ def write_artists_songs(connection, data):
                     result2 = int(select_where(connection, 'ID', '`Authors`', 'Name like %s', x)[0]['ID'])
                     result3 = select_where(connection, '*', '`Songs`', 'Name like %s and ID_Author = %s', (data['title'], result2))
                     result4 = int(select_where(connection, 'ID', '`Lyrics`', 'URL like %s', data['url'])[0]['ID'])
+                    result5 = 1
+                    for x in data['media']:
+                        if x['provider'] == 'youtube':
+                            result5 = int(select_where(connection, 'ID', 'YT_Videos', 'URL like %s', x['url'])[0]['ID'])
+                            break
                     if(result3 == ()):
-                        insert(connection, '`Songs`', '(%s, %s, %s, %s, 1, %s)', (it2+1, data['title'], result2, result4, data['release_date']))
+                        insert(connection, '`Songs`', '(%s, %s, %s, %s, 1, %s, %s)', (it2+1, data['title'], result2, result4, result5, data['release_date']))
                         it2 += 1
         
         #Split string for artists
@@ -66,8 +71,13 @@ def write_artists_songs(connection, data):
                     result2 = int(select_where(connection, 'ID', '`Authors`', 'Name like %s', x)[0]['ID'])
                     result3 = select_where(connection, '*', '`Songs`', 'Name like %s and ID_Author = %s', (data['title'], result2))
                     result4 = int(select_where(connection, 'ID', '`Lyrics`', 'URL like %s', data['url'])[0]['ID'])
+                    result5 = 1
+                    for x in data['media']:
+                        if x['provider'] == 'youtube':
+                            result5 = int(select_where(connection, 'ID', 'YT_Videos', 'URL like %s', x['url'])[0]['ID'])
+                            break
                     if(result3 == ()):
-                        insert(connection, '`Songs`', '(%s, %s, %s, %s, 1, %s)', (it2+1, data['title'], result2, result4, data['release_date']))
+                        insert(connection, '`Songs`', '(%s, %s, %s, %s, 1, %s, %s)', (it2+1, data['title'], result2, result4, result5, data['release_date']))
                         it2 += 1
 
         #Split string for artists
@@ -88,8 +98,13 @@ def write_artists_songs(connection, data):
                 result2 = int(select_where(connection, 'ID', '`Authors`', 'Name like %s', x)[0]['ID'])
                 result3 = select_where(connection, '*', '`Songs`', 'Name like %s and ID_Author = %s', (data['title'], result2))
                 result4 = int(select_where(connection, 'ID', '`Lyrics`', 'URL like %s', data['url'])[0]['ID'])
+                result5 = 1
+                for x in data['media']:
+                    if x['provider'] == 'youtube':
+                        result5 = int(select_where(connection, 'ID', 'YT_Videos', 'URL like %s', x['url'])[0]['ID'])
+                        break
                 if(result3 == ()):
-                    insert(connection, '`Songs`', '(%s, %s, %s, %s, 1, %s)', (it2+1, data['title'], result2, result4, data['release_date']))
+                    insert(connection, '`Songs`', '(%s, %s, %s, %s, 1, %s, %s)', (it2+1, data['title'], result2, result4, result5, data['release_date']))
                     it2 += 1
 
 #Working, don't touch
@@ -176,6 +191,15 @@ def write_lyrics(connection, data):
         #Then add it :)
         insert(connection, '`Lyrics`', '(%s, %s)', (it+1, data['url']))
 
+#Working, don't touch
+def write_videos(connection, data):
+    for x in data['media']:
+        if(x['provider'] == 'youtube'):
+            result = select_where(connection, '*', 'YT_Videos', 'URL like %s', x['url'])
+            
+            if(result == ()):
+                insert(connection, 'YT_Videos(URL)', '(%s)', (x['url']))
+            break
 
 def add_to_database(data):
     connection = pymysql.connect(host='localhost',
@@ -187,10 +211,10 @@ def add_to_database(data):
 
     with connection:
         write_lyrics(connection, data) 
+        write_videos(connection, data)
         write_artists_songs(connection, data)
         write_albums(connection, data)
         write_songs_in_albums(connection, data)
-
         # connection is not autocommit by default. So you must commit to save
         # your changes.
         connection.commit()
@@ -200,8 +224,9 @@ def web_browser_fetch(url, display):
 
             FirefoxOptions = webdriver.FirefoxOptions()
             FirefoxOptions.add_argument('-headless')
+            FirefoxOptions.binary_location = "/opt/firefox/firefox-bin"
             browser = webdriver.Firefox(options=FirefoxOptions)
-            browser.install_addon(os.path.realpath('./Front-End/uBlock.xpi'), temporary=True)
+            browser.install_addon(os.path.realpath('./uBlock.xpi'), temporary=True)
             browser.get(url)
             content = browser.page_source
             browser.close()
@@ -248,7 +273,7 @@ def get_lyrics(artist, song, open_video, display, is_text, auto_add, debug):
     }
     r = requests.get(base_url, params=params, headers=headers)
     json_data = r.json()
-    
+   
     if(json_data['response']['hits'] == []):
         print("No lyrics were found")
     else:
@@ -294,12 +319,13 @@ def get_lyrics(artist, song, open_video, display, is_text, auto_add, debug):
                 found = bool(0)
                 for x in json_data['response']['song']['media']:
                     if(x['provider'] == 'youtube'):
-                        os.system('firefox ' + x['url'])
-                        found = bool(1)
-                if(found == bool(0)):
+                        os.system('mpv ' + x['url'])
+                        found = True
+                if(found == False):
                     print("No video found in database")
 
 def checkToken():
+    print(len(client_access_token))
     if(not len(client_access_token) == 64):
         return False
     else: return True
@@ -307,7 +333,7 @@ def checkToken():
 if __name__ == "__main__":
         print('Checking for genius token variable...')
         if(client_access_token == None):
-            print("Genius access token isn't set. Please, set 'Genius_Token' variable inside shell.")       
+            print("Genius access token isn't set. Please, set 'GeniusToken' variable inside shell.")       
         elif(not checkToken()):
             print("Wrong token. Please re-check your variable.")
         else:

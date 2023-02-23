@@ -2,6 +2,7 @@ use Music_Search_System;
 
 -- Drop all tables before creating it (BE CAREFULL, IT WILL REMOVE ALL DATA)
 -- Backup your data before using this script
+drop table if exists YT_Comments;
 drop table if exists Songs_in_albums;
 drop table if exists Songs;
 drop table if exists Lyrics;
@@ -10,11 +11,14 @@ drop table if exists Authors;
 drop table if exists Genres;
 drop table if exists Users;
 drop table if exists Access_Rights;
+drop table if exists YT_Videos;
 
 create table Authors
 (
 	ID int not null auto_increment,
 	Name varchar(100),
+	-- Name varchar(100),
+	-- Patronymic varchar(100),
 	primary key(ID)
 );
 
@@ -55,6 +59,17 @@ create table Lyrics
 	primary key(ID)
 );
 
+create table YT_Videos
+(
+	ID int not null auto_increment,
+	URL varchar(200) not null,
+	primary key(ID)
+);
+
+lock table YT_Videos write;
+insert into YT_Videos(URL) value ('None');
+unlock tables;
+
 create table Songs
 (
 	ID int not null auto_increment,
@@ -62,11 +77,13 @@ create table Songs
 	ID_Author int,
 	ID_Lyrics int,
 	ID_Genre int,
+	ID_Video int,
 	Release_date Date,
 	primary key(ID),
 	foreign key(ID_Author) references Authors(ID) on delete cascade,
 	foreign key(ID_Genre) references Genres(ID) on delete cascade,
-	foreign key(ID_Lyrics) references Lyrics(ID) on delete cascade 
+	foreign key(ID_Lyrics) references Lyrics(ID) on delete cascade,
+	foreign key(ID_Video) references YT_Videos(ID) on delete cascade
 );
 
 -- lock table Songs write;
@@ -97,6 +114,18 @@ create table Users
 	Last_login datetime,
 	primary key(ID),
 	foreign key(User_Mode) references Access_Rights(ID)
+);
+
+create table YT_Comments
+(
+	ID int not null auto_increment,
+	ID_Video int,
+	ID_User int,
+	Message varchar(2000),
+	Removed boolean default(False),
+	primary key(ID),
+	foreign key(ID_User) references Users(ID) on delete cascade,
+	foreign key(ID_Video) references YT_Videos(ID) on delete cascade
 );
 
 -- lock table Users write;

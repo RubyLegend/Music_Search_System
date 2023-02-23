@@ -1,5 +1,5 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox, QDesktopWidget
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtWidgets import QMessageBox, QDesktopWidget
 from SQL_functions import *
 import re
 
@@ -70,7 +70,7 @@ def get_Nickname(login):
 
 class Ui_login(QtWidgets.QWidget):
 
-    switch_window = QtCore.pyqtSignal(str)
+    switch_window = QtCore.Signal(str)
 
     def setupUi(self, login):
         login.setObjectName("login")
@@ -132,11 +132,12 @@ class Ui_login(QtWidgets.QWidget):
     def location_on_the_screen(self):
         ag = QDesktopWidget().availableGeometry()
         widget = self.geometry()
-        x = ag.width()/2 - widget.width()/2
-        y = ag.height()/2 - widget.height()/2
+        x = int(ag.width()/2 - widget.width()/2)
+        y = int(ag.height()/2 - widget.height()/2)
         self.move(x, y)
     
     def register(self):
+        try:
             if self.Login.text() == '':
                 buttonReply = QMessageBox.about(self, "Error", "Please, enter your login.")
                 if buttonReply == QMessageBox.Ok:
@@ -167,8 +168,13 @@ class Ui_login(QtWidgets.QWidget):
                     buttonReply = QMessageBox.about(self, "Error", "Successfully registered. Now you can login.")
                     if buttonReply == QMessageBox.Ok:
                         print('OK clicked.')
+        except:
+            buttonReply = QMessageBox.about(self, "Error", "Failed connect to the server.\nPossible reason - maintenance.")
+            if buttonReply == QMessageBox.Ok:
+                print("Ok clicked.")
 
     def LogMeIn(self):
+        try:
             if self.Login.text() == '':
                 buttonReply = QMessageBox.about(self, "Error", "Please, enter your login.")
                 if buttonReply == QMessageBox.Ok:
@@ -196,11 +202,15 @@ class Ui_login(QtWidgets.QWidget):
                 else:
                     print('Connection successfull.')
                     self.switch_window.emit(get_Nickname(login))
+        except:
+            buttonReply = QMessageBox.about(self, "Error", "Failed connect to the server.\nPossible reason - maintenance.")
+            if buttonReply == QMessageBox.Ok:
+                print("Ok clicked.")
 
 
     def retranslateUi(self, login):
         _translate = QtCore.QCoreApplication.translate
-        login.setWindowTitle(_translate("login", "Form"))
+        login.setWindowTitle(_translate("login", "Music Search System | Login"))
         self.Login.setPlaceholderText(_translate("login", "Input your email here"))
         self.label.setText(_translate("login", "Welcome to \n"
 "Music Search System"))

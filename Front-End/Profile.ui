@@ -234,7 +234,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Commit</string>
+    <string>Discard</string>
    </property>
   </widget>
   <zorder>Email</zorder>

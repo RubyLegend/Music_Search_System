@@ -1,19 +1,27 @@
 #!/usr/bin/env python3
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui, QtWidgets
 from Login_ui import Ui_login as Login
 from Filters_ui import Ui_Filters as Filters
+from Moderator_ui import Ui_Moderator as Moderator
 from Result_ui import Ui_Result as Result
 from Details_song_ui import Ui_Details_song as Details_song
 from Lyrics_ui import Ui_Lyrics as Lyrics
 from Profile_ui import Ui_Profile as Profile
+from VideoPlayer_ui import Ui_VideoPlayer as VideoPlayer
 
 class Controller:
+    nickname = ''
+    
     filters_exist = 0
     profile_exist = 0
+    moderator_exist = 0
     result_exist = 0
     login_exist = 0
     details_exist = 0
+    lyrics_exist = 0
+    player_exist = 0
+
     def __init__(self):
         pass
 
@@ -29,6 +37,7 @@ class Controller:
 
     def show_filters(self, login):
         if(self.filters_exist == 0):
+            self.nickname = login
             self.window = Filters()
             self.filters_exist = 1
             self.window.setupUi(self.window, login)
@@ -44,16 +53,32 @@ class Controller:
         if(self.profile_exist == 1):
             self.profile.close()
             self.profile_exist = 0
+            self.nickname = login
             self.window.renew_nickname(self.window, login)
         self.window.show()
     
+    def show_moderator(self, login):
+        print("Moderator")
+        self.moderator = Moderator()
+        self.moderator_exist = 1
+        self.moderator.setupUi(self.moderator)
+        self.moderator.switch_window.connect(self.show_profile)
+        self.moderator.show()
+        self.profile.hide()
+
     def show_profile(self, login):
-        self.profile = Profile()
-        self.profile_exist = 1
-        self.profile.setupUi(self.profile, login)
-        self.profile.switch_window.connect(self.show_filters)
+        if self.profile_exist == 0:
+            self.profile = Profile()
+            self.profile_exist = 1
+            self.profile.setupUi(self.profile, login)
+            self.profile.switch_window.connect(self.show_filters)
+            self.profile.switch_window2.connect(self.show_moderator)
+        if(self.moderator_exist == 1):
+            self.moderator.close()
+            self.moderator_exist = 0
+        if(self.filters_exist == 1):
+            self.window.hide()
         self.profile.show()
-        self.window.hide()
 
 
     def show_result(self, data):
@@ -76,17 +101,32 @@ class Controller:
             self.details.setupUi(self.details, data)
             self.details.switch_window.connect(self.show_result)
             self.details.switch_window2.connect(self.show_lyrics)
+            self.details.switch_window3.connect(self.show_videoPlayer)
             self.result.hide()
         else: 
-            self.lyrics.close()
+            if self.lyrics_exist == 1:
+                self.lyrics.close()
+                self.lyrics_exist = 0
+            if self.player_exist == 1:
+                self.videoPlayer.close()
+                self.player_exist = 0
         self.details.show()
 
     def show_lyrics(self, url):
         self.lyrics = Lyrics()
+        self.lyrics_exist = 1
         self.lyrics.setupUi(self.lyrics, url)
         self.lyrics.switch_window.connect(self.show_details)
         self.details.hide()
         self.lyrics.show()
+
+    def show_videoPlayer(self, url):
+        self.videoPlayer = VideoPlayer()
+        self.player_exist = 1
+        self.videoPlayer.setupUi(self.videoPlayer, url, self.nickname)
+        self.videoPlayer.switch_window.connect(self.show_details)
+        self.details.hide()
+        self.videoPlayer.show()
 
 
 if __name__ == "__main__":

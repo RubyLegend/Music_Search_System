@@ -1,10 +1,15 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
-from PyQt5.QtCore import QRect
-from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import Qt
+from PySide2.QtCore import QRect
+from PySide2.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
+import warnings
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
 import pandas as pd
 from SQL_functions import *
 import pymysql
+
 
 class TableModel(QtCore.QAbstractTableModel):
 
@@ -32,25 +37,9 @@ class TableModel(QtCore.QAbstractTableModel):
             if orientation == Qt.Vertical:
                 return str(self._data.index[section])
 
-#For tables, where iterator field is ID
-def resolve_data(field, data, table):
-    connection = pymysql.connect(host='localhost',
-                                 user='root',
-                                 password='YAELfvk5Jgt8qRTc',
-                                 database='Music_Search_System',
-                                 charset='utf8mb4',
-                                 cursorclass=pymysql.cursors.DictCursor)
-    result = ''
-    with connection:
-        result = select_where(connection, field+' as `result`', table, 'ID like %s', (data))
-        connection.commit()
-    
-    return result[0]['result']
-
 class Ui_Result(QtWidgets.QWidget):
-    
-    switch_window = QtCore.pyqtSignal(str)
-    switch_window2 = QtCore.pyqtSignal(dict)
+    switch_window = QtCore.Signal(str)
+    switch_window2 = QtCore.Signal(dict)
     res_data = ''
 
     def setupUi(self, Result, data):
@@ -81,26 +70,24 @@ class Ui_Result(QtWidgets.QWidget):
     def location_on_the_screen(self):
         ag = QDesktopWidget().availableGeometry()
         widget = self.geometry()
-        x = ag.width()/2 - widget.width()/2
-        y = ag.height()/2 - widget.height()/2
+        x = int(ag.width() / 2 - widget.width() / 2)
+        y = int(ag.height() / 2 - widget.height() / 2)
         self.move(x, y)
 
     def handleDoubleClick(self, click):
         self.switch_window2.emit(self.res_data[click.row()])
 
     def fillTable(self, data):
-        data_out = pd.DataFrame(columns=['Name','Author(s)','Release date','Genre'])       
-        
+        data_out = pd.DataFrame(columns=['Name', 'Author(s)', 'Release date', 'Genre'])
 
         for x in data:
-
-            print(x)
+            #print(x)
             data_out = data_out.append({'Name': x['Name'],
-                                        'Author(s)': x['Artists'], #resolved
+                                        'Author(s)': x['Artists'],
                                         'Release date': x['Release date'],
                                         'Album': x['Album'],
-                                        'Genre': x['Genre']},  #resolved
-                                        ignore_index = True)
+                                        'Genre': x['Genre']},
+                                       ignore_index=True)
 
         self.res_data = data
 
@@ -115,6 +102,7 @@ class Ui_Result(QtWidgets.QWidget):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Result = QtWidgets.QWidget()
     ui = Ui_Result()

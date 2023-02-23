@@ -18,6 +18,16 @@ def select_where(connection, field, table, where_field, parameters):
      
     return result
 
+def select_where_sort(connection, field, table, where_field, parameters, sort_field, sort_type):
+    result = ''
+    with connection.cursor() as cursor:
+        # Read all records
+        sql = "SELECT " + field + " FROM " + table + " where " + where_field + " order by " + sort_field + ' ' + sort_type
+        cursor.execute(sql, parameters)
+        result = cursor.fetchall()
+     
+    return result
+
 #Select without `where parameter`
 def select(connection, field, table):
     result = ''

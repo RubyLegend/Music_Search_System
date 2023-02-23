@@ -1,14 +1,14 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QRect
-from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import QRect
+from PySide2.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
 from SQL_functions import *
 from search_genius import *
 
 class Ui_Filters(QtWidgets.QWidget):
     
-    switch_window = QtCore.pyqtSignal(list)
-    switch_window2 = QtCore.pyqtSignal()
-    switch_window3 = QtCore.pyqtSignal(str)
+    switch_window = QtCore.Signal(list)
+    switch_window2 = QtCore.Signal()
+    switch_window3 = QtCore.Signal(str)
 
     login = ''
 
@@ -206,8 +206,9 @@ class Ui_Filters(QtWidgets.QWidget):
         if(self.Genre.isEnabled() == True):
             genre = self.Genre.currentText()
 
-        if(song == artist == album == genre == release_date == 0):
+        if(song == artist == album == genre == release_date == None):
             buttonReply = QMessageBox.about(self, "Error", "No search parameters supplied.")
+            return
 
         print("Searching...")
         connection = pymysql.connect(host='localhost',

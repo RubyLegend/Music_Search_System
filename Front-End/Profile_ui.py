@@ -1,18 +1,20 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QRect
-from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import QRect
+from PySide2.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
 from SQL_functions import *
 from search_genius import *
 
 
 class Ui_Profile(QtWidgets.QWidget):
 
-    switch_window = QtCore.pyqtSignal(str)
+    switch_window = QtCore.Signal(str)
+    switch_window2 = QtCore.Signal(str)
 
     login = ''
     password = ''
     email = ''
     nickname = ''
+    isModerator = False
     id = 0
 
     def setupUi(self, Filters, login):
@@ -83,6 +85,18 @@ class Ui_Profile(QtWidgets.QWidget):
         self.discard.setObjectName("pushButton")
         self.label_5 = QtWidgets.QLabel(Filters)
         self.label_5.setGeometry(QtCore.QRect(62, 310, 101, 30))
+
+        self.find_data()
+        
+        if self.isModerator:
+            self.moderate = QtWidgets.QPushButton(Filters)
+            self.moderate.setGeometry(QtCore.QRect(300, 5, 171, 40))
+            font = QtGui.QFont()
+            font.setPointSize(18)
+            self.moderate.setFont(font)
+            self.moderate.setObjectName("moderate")
+            self.moderate.clicked.connect(lambda: self.switch_window2.emit(self.login))
+
         font = QtGui.QFont()
         font.setPointSize(16)
         self.label_5.setFont(font)
@@ -102,7 +116,6 @@ class Ui_Profile(QtWidgets.QWidget):
         self.Last_login.raise_()
 
         self.retranslateUi(Filters)
-        self.find_data()
         self.location_on_the_screen()
         QtCore.QMetaObject.connectSlotsByName(Filters)
 
@@ -154,7 +167,7 @@ class Ui_Profile(QtWidgets.QWidget):
         self.switch_window.emit(self.Nickname.text())
 
     def commit_clean(self):
-        self.switch_window.emit(self.Nickname.text())
+        self.switch_window.emit(self.login)
 
     def find_data(self):
         connection = pymysql.connect(host='localhost',
@@ -164,8 +177,11 @@ class Ui_Profile(QtWidgets.QWidget):
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
 
+        moderator_id = ''
+
         with connection:
             result = select_where(connection, '*', 'Users', 'Nickname = %s', self.login)[0]
+            moderator_id = select_where(connection, "ID", "Access_Rights", "Name like %s", ("Administrator"))[0]["ID"]
             connection.commit()
         self.id = result['ID']
         self.Nickname.setText(result['Nickname'])
@@ -175,18 +191,22 @@ class Ui_Profile(QtWidgets.QWidget):
         self.Phone_num.setText(str(result['Phone']))
         self.Last_login.setText(str(result['Last_login']))
         self.password = result['Password']
+        if result["User_Mode"] == moderator_id:
+            self.isModerator = True
 
     
     def location_on_the_screen(self):
         ag = QDesktopWidget().availableGeometry()
         widget = self.geometry()
-        x = ag.width()/2 - widget.width()/2
-        y = ag.height()/2 - widget.height()/2
+        x = int(ag.width()/2 - widget.width()/2)
+        y = int(ag.height()/2 - widget.height()/2)
         self.move(x, y)
 
     def retranslateUi(self, Filters):
         _translate = QtCore.QCoreApplication.translate
         Filters.setWindowTitle(_translate("Filters", "Music Search System | Profile"))
+        if self.isModerator:
+            self.moderate.setText(_translate("Filters", "Moderator"))
         self.label_2.setText(_translate("Filters", "Email"))
         self.Password.setPlaceholderText(_translate("Filters", "********"))
         self.label.setText(_translate("Filters", "Nickname"))

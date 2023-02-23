@@ -1,7 +1,7 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
-from PyQt5.QtCore import QRect
-from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import Qt
+from PySide2.QtCore import QRect
+from PySide2.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
 from SQL_functions import *
 import pymysql
 from selenium import webdriver
@@ -12,8 +12,9 @@ class Ui_Details_song(QtWidgets.QWidget):
 
     res_data = ''
     AlbumName = ''
-    switch_window = QtCore.pyqtSignal(list)
-    switch_window2 = QtCore.pyqtSignal(str)
+    switch_window = QtCore.Signal(list)
+    switch_window2 = QtCore.Signal(str)
+    switch_window3 = QtCore.Signal(str)
 
     def setupUi(self, Details_song, data):
         Details_song.setObjectName("Details_song")
@@ -51,9 +52,9 @@ class Ui_Details_song(QtWidgets.QWidget):
         self.Lyrics = QtWidgets.QPushButton(Details_song)
         self.Lyrics.setObjectName("Lyrics")
         self.verticalLayout.addWidget(self.Lyrics)
-        #self.Video = QtWidgets.QPushButton(Details_song)
-        #self.Video.setObjectName("Video")
-        #self.verticalLayout.addWidget(self.Video)
+        self.Video = QtWidgets.QPushButton(Details_song)
+        self.Video.setObjectName("Video")
+        self.verticalLayout.addWidget(self.Video)
         self.Return_to_results = QtWidgets.QPushButton(Details_song)
         self.Return_to_results.setObjectName("Return_to_results")
         self.verticalLayout.addWidget(self.Return_to_results)
@@ -67,6 +68,11 @@ class Ui_Details_song(QtWidgets.QWidget):
 
         self.Return_to_results.clicked.connect(self.return_button)
         self.Lyrics.clicked.connect(self.open_lyrics)
+        self.Video.clicked.connect(self.playVideo)
+
+        if(self.res_data['Video URL'] == 'None'):
+            self.Video.setEnabled(False)
+
 
     def return_button(self):
         self.switch_window.emit(list())
@@ -74,21 +80,19 @@ class Ui_Details_song(QtWidgets.QWidget):
     def location_on_the_screen(self):
         ag = QDesktopWidget().availableGeometry()
         widget = self.geometry()
-        x = ag.width()/2 - widget.width()/2
-        y = ag.height()/2 - widget.height()/2
+        x = int(ag.width()/2 - widget.width()/2)
+        y = int(ag.height()/2 - widget.height()/2)
         self.move(x, y)
 
     def open_lyrics(self):
         self.switch_window2.emit(self.res_data['Lyrics URL'])
-    """
-    def get_album(self):
-        connection = pymysql.connect(...)
 
+    def playVideo(self):
+        print("Trying to play video.")
+        print("Trying to get video URL:")
+        print(self.res_data['Video URL'])
+        self.switch_window3.emit(self.res_data['Video URL'])
 
-        with connection:
-            self.AlbumName = select_where(connection, "Name", "Albums join Songs_in_albums as sia on Albums.ID = sia.ID_Album", "sia.ID_Song = %s", self.res_data['ID'])[0]['Name']
-            connection.commit()
-    """
     def retranslateUi(self, Details_song):
         _translate = QtCore.QCoreApplication.translate
         Details_song.setWindowTitle(_translate("Details_song", "Music Search System | Details"))
@@ -98,8 +102,11 @@ class Ui_Details_song(QtWidgets.QWidget):
         self.Author_name.setText(_translate("Details_song", "Author(s) name: " + self.res_data['Artists']))
         self.Lyrics.setText(_translate("Details_song", "-> Click to open lyrics <-"))
         self.Return_to_results.setText(_translate("Details_song", "Return to results"))
-        #self.Video.setText(_translate("Details_song", "Open video on YouTube"))
- 
+        if(self.res_data['Video URL'] != 'None'):
+            self.Video.setText(_translate("Details_song", "Open YouTube video in player"))
+        else:
+            self.Video.setText(_translate("Details_song", "Video not available"))
+
 
 if __name__ == "__main__":
     import sys

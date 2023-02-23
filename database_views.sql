@@ -5,14 +5,16 @@ drop view if exists song_data;
 create view song_data as
     select s.Name, group_concat(a.Name separator ', ') as Artists, 
            s.Release_date as 'Release date', al.Name as Album, 
-           g.Genre_name as Genre, l.URL as 'Lyrics URL'
-    from Songs s, Authors a, Songs_in_albums sia, Albums al, Genres g, Lyrics l
+           g.Genre_name as Genre, l.URL as 'Lyrics URL',
+           v.URL as 'Video URL'
+    from Songs s, Authors a, Songs_in_albums sia, Albums al, Genres g, Lyrics l, YT_Videos v
     where a.ID = s.ID_Author 
       and sia.ID_Song = s.ID 
       and sia.ID_Album = al.ID 
       and s.ID_Genre = g.ID 
       and l.ID = s.ID_Lyrics
-    group by s.Name, s.Release_date, al.Name, g.Genre_name, l.URL;
+      and v.ID = s.ID_Video
+    group by s.Name, s.Release_date, al.Name, g.Genre_name, l.URL, v.URL;
 
 drop view if exists song_author;
 

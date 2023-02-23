@@ -1,175 +1,166 @@
-1638804114125	geckodriver	INFO	Listening on 127.0.0.1:41705
-1638804114625	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "32781" "-no-remote" "-profile" "/tmp/rust_mozprofileUEBStX"
+1671184431825	geckodriver	INFO	Listening on 127.0.0.1:50375
+1671184432334	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "32857" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilepH2p1T"
 *** You are running in headless mode.
-1638804115154	Marionette	INFO	Marionette enabled
-Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=1.22951) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileUEBStX/search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:32781/devtools/browser/4aa8e407-565b-4fdd-994d-054fbf6d2a3b
-1638804116719	Marionette	INFO	Listening on port 43699
-1638804116761	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1638804158203	geckodriver	INFO	Listening on 127.0.0.1:33769
-1638804158706	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "34521" "-no-remote" "-profile" "/tmp/rust_mozprofilek1M8K9"
+1671184432797	Marionette	INFO	Marionette enabled
+1671184432803	Marionette	INFO	Listening on port 33889
+Read port: 33889
+WebDriver BiDi listening on ws://127.0.0.1:32857
+1671184432886	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 13625, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:13625): GLib-GIO-WARNING **: 11:53:53.200: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilepH2p1T/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:32857/devtools/browser/dae17328-5fa0-4cd9-8be2-36eb93c2c9b2
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-5cb6b130c97f32565b7d.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-5cb6b130c97f32565b7d.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-5cb6b130c97f32565b7d.js, line 2: unreachable code after return statement
+1671184440146	Marionette	INFO	Stopped listening on port 33889
+!!! error running onStopped callback: TypeError: callback is not a function
+1672271999385	geckodriver	INFO	Listening on 127.0.0.1:47777
+1672271999896	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "58231" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileZlvP0F"
 *** You are running in headless mode.
-1638804159104	Marionette	INFO	Marionette enabled
-Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.935269) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilek1M8K9/search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:34521/devtools/browser/4e972ac5-8c4d-4963-8572-30f4730235ea
-1638804160277	Marionette	INFO	Listening on port 43387
-1638804160334	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1638804165657	Marionette	INFO	Stopped listening on port 43387
-JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1672272000691	Marionette	INFO	Marionette enabled
+1672272000696	Marionette	INFO	Listening on port 36535
+Read port: 36535
+WebDriver BiDi listening on ws://127.0.0.1:58231
+1672272000832	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 710181, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
 
-###!!! [Parent][MessageChannel] Error: (msgtype=0x390077,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
-
-[Parent 6212, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /var/tmp/portage/www-client/firefox-92.0.1/work/firefox-92.0.1/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
-console.log: WebExtensions: reset-default-search: starting.
-console.log: WebExtensions: reset-default-search: No addons in our list are installed.
-Exiting due to channel error.
-Crash Annotation GraphicsCriticalError: |[C0][GFX1-]: Receive IPC close with reason=AbnormalShutdown (t=26539.9) Exiting due to channel error.
-Exiting due to channel error.
-Crash Annotation GraphicsCriticalError: |[C0][GFX1-]: Receive IPC close with reason=AbnormalShutdown (t=26538.9) 1639065767820	geckodriver	INFO	Listening on 127.0.0.1:32955
-1639065768419	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "53143" "-no-remote" "-profile" "/tmp/rust_mozprofileVsMdxC"
+(firefox:710181): GLib-GIO-WARNING **: 02:00:01.144: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZlvP0F/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58231/devtools/browser/6c1b429d-70c8-4e4f-8b27-58b07c5d412e
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+1672272006371	Marionette	INFO	Stopped listening on port 36535
+1672272048057	geckodriver	INFO	Listening on 127.0.0.1:48899
+1672272048567	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "43043" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileciTnP8"
 *** You are running in headless mode.
-1639065769165	Marionette	INFO	Marionette enabled
-Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=1.18775) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileVsMdxC/search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:53143/devtools/browser/ff45d651-84b1-48e1-b3cf-419a60683b61
-1639065770264	Marionette	INFO	Listening on port 45043
-1639065770338	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-0efa9a03e5ed281ce991.js, line 13: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-0efa9a03e5ed281ce991.js, line 29: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-0efa9a03e5ed281ce991.js, line 40: unreachable code after return statement
-1639065774939	Marionette	INFO	Stopped listening on port 45043
-JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1672272049047	Marionette	INFO	Marionette enabled
+1672272049049	Marionette	INFO	Listening on port 38399
+Read port: 38399
+WebDriver BiDi listening on ws://127.0.0.1:43043
+1672272049132	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 710620, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
 
-###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
-1639079111327	geckodriver	INFO	Listening on 127.0.0.1:47629
-1639079111828	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "57007" "-no-remote" "-profile" "/tmp/rust_mozprofile15I4sF"
+(firefox:710620): GLib-GIO-WARNING **: 02:00:49.413: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileciTnP8/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:43043/devtools/browser/864eed07-df35-451f-8310-ebee18762623
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+1672272054456	Marionette	INFO	Stopped listening on port 38399
+1672320713336	geckodriver	INFO	Listening on 127.0.0.1:37401
+1672320713845	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "42865" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilenefwOF"
 *** You are running in headless mode.
-1639079114537	Marionette	INFO	Marionette enabled
-Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=3.946) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile15I4sF/search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:57007/devtools/browser/52226b94-e512-41a1-8df4-30d386e0d1d7
-1639079118095	Marionette	INFO	Listening on port 43491
-1639079118201	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-f589bae3cc845f13f9e6.js, line 13: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-f589bae3cc845f13f9e6.js, line 29: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-f589bae3cc845f13f9e6.js, line 40: unreachable code after return statement
-1639079126385	Marionette	INFO	Stopped listening on port 43491
-JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1672320714347	Marionette	INFO	Marionette enabled
+1672320714350	Marionette	INFO	Listening on port 38281
+WebDriver BiDi listening on ws://127.0.0.1:42865
+Read port: 38281
+1672320714581	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 839610, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
 
-###!!! [Child][MessageChannel] Error: (msgtype=0x5B0008,name=PHttpChannel::Msg_DeletingChannel) Channel closing: too late to send/recv, messages will be lost
+(firefox:839610): GLib-GIO-WARNING **: 15:31:54.636: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilenefwOF/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:42865/devtools/browser/a2562c57-b36d-4e08-894a-bebdac7d57fd
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+1672320740673	Marionette	INFO	Stopped listening on port 38281
+1672934185337	geckodriver	INFO	Listening on 127.0.0.1:39657
+1672934185853	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "54071" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilemPyVZb"
+*** You are running in headless mode.
+1672934186359	Marionette	INFO	Marionette enabled
+1672934186364	Marionette	INFO	Listening on port 39395
+Read port: 39395
+WebDriver BiDi listening on ws://127.0.0.1:54071
+1672934186522	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 29096, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
 
-1639256402616	geckodriver	INFO	Listening on 127.0.0.1:40705
-1639256403119	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "60981" "-no-remote" "-profile" "/tmp/rust_mozprofileBQaWKr"
-1639256405318	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileBQaWKr/search.json.mozlz4", (void 0)))
-console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
-console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
-DevTools listening on ws://localhost:60981/devtools/browser/cc0e4031-8f07-46b8-aa23-bb1310c2484f
-1639256406654	Marionette	INFO	Listening on port 43467
-1639256406756	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1639256413201	Marionette	INFO	Stopped listening on port 43467
-JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
-JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
-1639257701812	geckodriver	INFO	Listening on 127.0.0.1:48607
-1639257702329	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "43417" "-no-remote" "-profile" "/tmp/rust_mozprofiledzDo4f"
-1639257704965	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiledzDo4f/search.json.mozlz4", (void 0)))
-console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
-console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
-DevTools listening on ws://localhost:43417/devtools/browser/465e87a2-7c5a-4af9-815e-f7459abf0a61
-1639257707010	Marionette	INFO	Listening on port 40515
-1639257707060	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1639257727910	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
-1639257728839	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
-1639257795972	Marionette	INFO	Stopped listening on port 40515
-JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
-JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
-1639257836491	geckodriver	INFO	Listening on 127.0.0.1:57381
-1639257837007	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "42621" "-no-remote" "-profile" "/tmp/rust_mozprofileQ1wPGn"
-1639257839346	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileQ1wPGn/search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:42621/devtools/browser/3b2f1c08-f67a-4a9f-be7d-b52137a188f8
-1639257840441	Marionette	INFO	Listening on port 34183
-1639257840540	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
-1639257847384	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847394	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847410	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847421	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847428	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847438	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847445	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847456	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847461	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847463	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847467	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847470	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847472	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847475	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847479	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257847899	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257849953	Marionette	INFO	Stopped listening on port 34183
-JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
-JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
-1639257913022	geckodriver	INFO	Listening on 127.0.0.1:56747
-1639257913529	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "55955" "-no-remote" "-profile" "/tmp/rust_mozprofileLizodh"
-1639257915601	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileLizodh/search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:55955/devtools/browser/a089010f-77b7-455d-8121-bfc8f86c8f11
-1639257916633	Marionette	INFO	Listening on port 40233
-1639257916655	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
-1639257923625	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923634	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923637	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923641	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923644	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923649	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923655	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923658	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923662	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923668	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923672	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923675	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923688	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923690	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257923694	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257924458	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
-1639257928058	Marionette	INFO	Stopped listening on port 40233
-JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
-JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+(firefox:29096): GLib-GIO-WARNING **: 17:56:26.747: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilemPyVZb/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54071/devtools/browser/e5ae81a4-a6c8-473c-9e27-86f651d00514
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+1672934191595	Marionette	INFO	Stopped listening on port 39395
+1673255526272	geckodriver	INFO	Listening on 127.0.0.1:42713
+1673255526786	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "56473" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileoP2PHx"
+*** You are running in headless mode.
+1673255527263	Marionette	INFO	Marionette enabled
+1673255527265	Marionette	INFO	Listening on port 45265
+Read port: 45265
+WebDriver BiDi listening on ws://127.0.0.1:56473
+1673255527376	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 8505, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
 
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+(firefox:8505): GLib-GIO-WARNING **: 11:12:07.667: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileoP2PHx/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56473/devtools/browser/afed0ebf-10e9-4252-b517-3b865858ce44
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+1673255532848	Marionette	INFO	Stopped listening on port 45265
+1673295945953	geckodriver	INFO	Listening on 127.0.0.1:43059
+1673295946463	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "57975" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile7TXg7a"
+*** You are running in headless mode.
+1673295946938	Marionette	INFO	Marionette enabled
+1673295946943	Marionette	INFO	Listening on port 36229
+Read port: 36229
+WebDriver BiDi listening on ws://127.0.0.1:57975
+1673295947073	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 30452, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
 
-1639331905006	geckodriver	INFO	Listening on 127.0.0.1:33179
-1639331905506	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44001" "-no-remote" "-profile" "/tmp/rust_mozprofilea5tl9O"
-1639331912348	Marionette	INFO	Marionette enabled
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilea5tl9O/search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:44001/devtools/browser/017136ef-e59a-4060-9afa-4c276cba4dd7
-1639331914283	Marionette	INFO	Listening on port 36147
-1639331914353	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 13: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 29: unreachable code after return statement
-JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-da827888ea93daaec1ac.js, line 40: unreachable code after return statement
-1639331921473	Marionette	INFO	Stopped listening on port 36147
+(firefox:30452): GLib-GIO-WARNING **: 22:25:47.393: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile7TXg7a/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57975/devtools/browser/8fc9b05e-6e4b-415a-b4db-8cbf06d16a61
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+1673295952932	Marionette	INFO	Stopped listening on port 36229
+1673302000408	geckodriver	INFO	Listening on 127.0.0.1:52693
+1673302000916	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "55835" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilemAYH1h"
+*** You are running in headless mode.
+1673302001410	Marionette	INFO	Marionette enabled
+1673302001415	Marionette	INFO	Listening on port 32943
+Read port: 32943
+WebDriver BiDi listening on ws://127.0.0.1:55835
+1673302001557	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 6232, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
 
-###!!! [Child][MessageChannel] Error: (msgtype=0x5B0007,name=PHttpChannel::Msg_RemoveCorsPreflightCacheEntry) Channel closing: too late to send/recv, messages will be lost
+(firefox:6232): GLib-GIO-WARNING **: 00:06:41.848: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilemAYH1h/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55835/devtools/browser/02a46c91-1ddd-446b-ab62-195505acf28b
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+1673302008394	Marionette	INFO	Stopped listening on port 32943
+1673304145018	geckodriver	INFO	Listening on 127.0.0.1:35007
+1673304145526	mozrunner::runner	INFO	Running command: "/opt/firefox/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "44457" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilekmvLyx"
+*** You are running in headless mode.
+1673304146050	Marionette	INFO	Marionette enabled
+1673304146052	Marionette	INFO	Listening on port 34135
+WebDriver BiDi listening on ws://127.0.0.1:44457
+Read port: 34135
+1673304146360	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 15305, Main Thread] WARNING: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:167
 
-
-###!!! [Child][MessageChannel] Error: (msgtype=0x5B0008,name=PHttpChannel::Msg_DeletingChannel) Channel closing: too late to send/recv, messages will be lost
-
-JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
-JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
+(firefox:15305): GLib-GIO-WARNING **: 00:42:26.415: /home/ruby/.local/share/applications/defaults.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilekmvLyx/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:44457/devtools/browser/9d3e292b-132e-4a72-9465-7459fa65e1a7
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript warning: https://assets.genius.com/javascripts/compiled/reactSongClient.desktop-c9bf06d14f73f028425c.js, line 2: unreachable code after return statement
+JavaScript error: resource://gre/modules/ConduitsChild.jsm, line 67: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: moz-extension://f6a5d607-ce8c-4c1b-9651-2014d08be8f2/js/vapi-client.js, line 230: InvalidStateError: An exception was thrown
+[2023-01-09T22:42:35Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1673304155451	Marionette	INFO	Stopped listening on port 34135

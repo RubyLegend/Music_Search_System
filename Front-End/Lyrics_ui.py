@@ -1,7 +1,7 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
-from PyQt5.QtCore import QRect
-from PyQt5.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import Qt
+from PySide2.QtCore import QRect
+from PySide2.QtWidgets import QMessageBox, QDesktopWidget, QCheckBox
 from SQL_functions import *
 import pymysql
 import os
@@ -9,7 +9,7 @@ from search_genius import web_browser_fetch
 
 class Ui_Lyrics(QtWidgets.QWidget):
 
-    switch_window = QtCore.pyqtSignal(dict)
+    switch_window = QtCore.Signal(dict)
     url = ''
 
     def setupUi(self, Lyrics, url):
@@ -42,8 +42,8 @@ class Ui_Lyrics(QtWidgets.QWidget):
     def location_on_the_screen(self):
         ag = QDesktopWidget().availableGeometry()
         widget = self.geometry()
-        x = ag.width()/2 - widget.width()/2
-        y = ag.height()/2 - widget.height()/2
+        x = int(ag.width()/2 - widget.width()/2)
+        y = int(ag.height()/2 - widget.height()/2)
         self.move(x, y)
 
     def return_to_res(self):
